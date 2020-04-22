@@ -9,35 +9,10 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: rgb(37, 196, 37);
     margin: 0px;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: blue;
-    visibility: hidden;
-    height: 0px;
-}
-
-.exhibit {
-    visibility: visible;
-    height: auto;
-}
-
-select {
-    text-align-last: center;
-    width: 33.3%;
-    background-color: blue;
-    border: none;
-    font-family: Helvetica;
-    font-size: 20px;
-    height: 40px;
-}
-
-select:hover {
-    background-color: lightblue;
 }
 
 header {
@@ -45,8 +20,7 @@ header {
     justify-content: space-evenly;
     align-items: center;
     background-color: blue; 
-    height: 200px;
-    
+    height: 200px;   
 }
 
 .title-pokedex {
@@ -55,16 +29,13 @@ header {
     font-size: 60px;
 }
 
-.search-field {
-    height: 30px;
-    border-radius: 10px;
-    border: none;
-    width: 90%;
-    margin-left: 10px;
-    margin-top: 2px;
+.menu-search {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
 }
 
-label {
+.search-label {
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -77,10 +48,13 @@ label {
     font-size: 15px;
 }
 
-.menu-search {
-    display: flex;
-    justify-content: flex-end;
-    width: 70%;
+.search-field {
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    width: 90%;
+    margin-left: 10px;
+    margin-top: 2px;
 }
 
 .search-button {
@@ -112,6 +86,53 @@ label {
     background-color: lightblue;
 }
 
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: blue;
+    visibility: hidden;
+    height: 0px;
+}
+
+.menu-exhibit {
+    visibility: visible;
+    height: auto;
+}
+
+.select-box {
+    display: flex;
+    align-items: baseline;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.select-label {
+    background-color: blue;
+    border: none;
+    font-family: Helvetica;
+    font-size: 20px;
+    height: 40px;
+}
+
+select {
+    background-color: rgb(32, 32, 204);
+    border: none;
+    font-family: Helvetica;
+    font-size: 20px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+select:hover {
+    background-color: lightblue;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
 h1 {
     text-align: center;
     font-family: Helvetica;
@@ -122,8 +143,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 10px 0px;
-    
+    margin: 10px 0px;   
 }
 
 .information-card {
@@ -133,6 +153,7 @@ h1 {
     border-radius: 10px;
     width: 30%;
     background-color: red;
+    cursor: pointer;
 }
 
 .image-pokemon {
@@ -151,63 +172,145 @@ h1 {
     font-family: Helvetica;
 }
 
+.popup-brackground {
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.8);
+    transition: all 1s;
+}
+
+.popup-brackground.popup-brackground-exhibit {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-card {
+    visibility: hidden;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    top: calc(50% - 250px);
+    left: calc(50% - 150px);
+    background-color: red;
+    width: 300px;
+    height: 500px;
+    z-index: 2;
+    box-shadow: 3px 3px 20px grey;
+    transform: translate(10px);
+    opacity: 0;
+    transition: all 1s;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.popup-card.popup-card-exhibit {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0px);
+}
+
+.description-popup {
+    display: flex;
+    justify-content: center;
+}
+
+.inside-popup {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    font-family: Helvetica;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.image-popup-card {
+    text-align: center;
+}
+
+.button-popup-esc {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: 2px 2px 10px black;
+    font-size: 20px;
+}
+
+.button-popup-esc:hover {
+    background-color: gray;
+}
+
 .creatby {
     text-align: center;
     font-family: Helvetica;
 }
 
-main {
-    margin: 0px;
-}
-
-@media only screen and (max-width: 600px) {
-    html {
-        width: 100%;
-        height: 100%;
-    }
+@media only screen and (max-width: 800px) {
 
     header {
-        display: flex;
         flex-direction: column;
         text-align: center;
-        height: 200px;
     }
 
     .title-pokedex {
         font-size: 40px;
-        width: 100%;
         margin: 0px;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: column;
-        background-color: blue;
-        visibility: hidden;
-    }
-
-    select {
-        width: 100%;
-        background-color: blue;
-        border: none;
-        text-align: left;
     }
 
     .menu-search {
         justify-content: space-around;
-        width: 100%;
+        width: 90%;
     }
 
-    label {
+    .search-label {
         width: 80%;
     }
 
-    .filter-button {
-        width: 10%;
+    .search-field {
+        width: 70%;
     }
 
     .search-button {
-        width: 10%;
+        width: 20%;
+    }
+
+    .filter-button {
+        width: 15%;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    select {
+        flex-direction: column;
+        text-align: left;
+        background-color: rgb(32, 32, 204);
+        width: 60%;
+    }
+
+    .select-box {
+        width: 100%
+    }
+
+    .select-label {
+        width: 40%;
     }
 
     h1 {
@@ -215,12 +318,20 @@ main {
     }
 
     .pokemon-card {
-        display: flex;
         flex-direction: column;
         align-content: center;
+        touch-action: auto;
     }
 
     .information-card {
         width: 95%;
+    }
+
+    .popup-card {
+        background-color: rgba(250, 4, 4, 0.8);
+        top: calc(50% - 310px);
+        left: calc(50% - 150px);
+        width: 280px;
+        height: 600px;
     }
 }
