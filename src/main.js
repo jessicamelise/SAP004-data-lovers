@@ -1,7 +1,6 @@
-import { example } from './data.js';
-// import data from './data/lol/lol.js';
+import { filterData } from './data.js';
 import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
+
 
 let menuButton = document.getElementById("menu-click");
 let menuField = document.getElementById("menu-field");
@@ -39,15 +38,15 @@ function creatNewDiv(itens) {
   return newDiv;
 }
 
-function showAllCards() {
+function showAllCards(pokemon) {
   pokemonCard.innerHTML = ""
-  for (let list of data.pokemon) {
+  for (let list of pokemon) {
     let eachCard = creatNewDiv(list);
     pokemonCard.appendChild(eachCard);
   }
 }
 
-showAllCards();
+showAllCards(data.pokemon);
 
 let popUpBackGround = document.getElementById("popup-brackground");
 let popUpCard = document.getElementById("popup-card");
@@ -90,3 +89,35 @@ function informationPopUp(position) {
   descriptionPopUp.appendChild(newDivPopUp);
   return popUpCard;
 }
+
+
+let searchButton = document.querySelectorAll(".search-button");
+
+function catchTheValue () {
+  let sel = document.getElementById("type");
+  return console.log(sel.options[sel.selectedIndex].text);
+  }
+
+  searchButton[0].addEventListener("click", function() {
+    showAllCards(filterData(data.pokemon,"id", 1));
+  })
+
+  let typesOfPokemon = document.getElementById("type");
+
+  typesOfPokemon.addEventListener('change', () => {
+    if (typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText === "Choose")  { 
+      showAllCards(data.pokemon);} 
+    
+  else {
+    showAllCards(filterData(data.pokemon,"type", typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText))
+  }
+  })
+
+  let eggs = document.getElementById("eggs");
+
+  eggs.addEventListener('change', function () {
+    if (eggs.options[eggs.selectedIndex].innerText === "Choose") {
+      showAllCards(data.pokemon);
+    }
+    else {  showAllCards(filterData(data.pokemon,"egg", eggs.options[eggs.selectedIndex].innerText));
+  }})
