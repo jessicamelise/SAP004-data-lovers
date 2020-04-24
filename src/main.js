@@ -1,4 +1,4 @@
-import { filterData } from './data.js';
+import { filterData, sortData } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 
@@ -121,3 +121,27 @@ function catchTheValue () {
     }
     else {  showAllCards(filterData(data.pokemon,"egg", eggs.options[eggs.selectedIndex].innerText));
   }})
+
+    function newArray () {
+      let test1 = sortData(data.pokemon, "spawn_chance")
+      return test1;
+    }
+
+  let orderData = document.getElementById("order");
+
+  orderData.addEventListener('change', function () {
+    let choiceOrder = orderData.options[orderData.selectedIndex].value;
+    if(choiceOrder === "spawn_chance_less") {
+      showAllCards(sortData(data.pokemon, choiceOrder));
+    }
+    else if (choiceOrder === "name") {
+      showAllCards(sortData(data.pokemon, choiceOrder))
+    }
+    else if(choiceOrder=== "name_reverse") {
+      showAllCards(sortData(data.pokemon, choiceOrder).reverse()); // resolver depois
+    }
+
+    else if(choiceOrder==="spawn_time") {
+      showAllCards(sortData(data.pokemon, "spawn_time"));
+    }
+  })
