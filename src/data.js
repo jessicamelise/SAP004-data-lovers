@@ -6,7 +6,7 @@ export const filterData = (data, type, condition) => {
   }
   else {
     return data.filter((item) => item[type] === condition);
-  };
+  }
 };
 
 export const sortData = (data, sortBy) => {
@@ -17,4 +17,3 @@ export const sortData = (data, sortBy) => {
   })
     return data.slice().sort((a,b) =>a[sortBy]>b[sortBy]?1:-1);
 }
-
