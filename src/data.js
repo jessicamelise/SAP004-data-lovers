@@ -10,6 +10,11 @@ export const filterData = (data, type, condition) => {
 };
 
 export const sortData = (data, sortBy) => {
+  data.map(item => {
+    if(item["spawn_time"] === "N/A") {
+      item["spawn_time"] = "00:00"
+    }
+  })
     return data.slice().sort((a,b) =>a[sortBy]>b[sortBy]?1:-1);
 }
 

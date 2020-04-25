@@ -127,21 +127,46 @@ function catchTheValue () {
       return test1;
     }
 
+    const mapFunction = () => {
+      data.pokemon.map(item => {
+        if(item["spawn_time"] === "00:00") {
+          item["spawn_time"] = "N/A"
+        }
+      })
+    }
+
   let orderData = document.getElementById("order");
 
   orderData.addEventListener('change', function () {
     let choiceOrder = orderData.options[orderData.selectedIndex].value;
+    if(choiceOrder === "spawn_chance") {
+      showAllCards(sortData(data.pokemon, "spawn_chance").reverse());
+      mapFunction();
+    }
     if(choiceOrder === "spawn_chance_less") {
-      showAllCards(sortData(data.pokemon, choiceOrder));
+      showAllCards(sortData(data.pokemon, "spawn_chance"));
+      mapFunction();
     }
     else if (choiceOrder === "name") {
       showAllCards(sortData(data.pokemon, choiceOrder))
-    }
-    else if(choiceOrder=== "name_reverse") {
-      showAllCards(sortData(data.pokemon, choiceOrder).reverse()); // resolver depois
+      mapFunction();
     }
 
+    else if (choiceOrder === "name_reverse") {
+      showAllCards(sortData(data.pokemon, "name").reverse())
+      mapFunction();
+    } 
+
     else if(choiceOrder==="spawn_time") {
+      showAllCards(sortData(data.pokemon, "spawn_time").reverse());
+      mapFunction();
+      }
+    else if(choiceOrder==="spawn_time_less") {
       showAllCards(sortData(data.pokemon, "spawn_time"));
+      mapFunction();
     }
+    else {
+      showAllCards(data.pokemon)
+    }
+  
   })
