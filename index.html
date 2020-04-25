@@ -26,6 +26,7 @@
     <div class="select-box">
       <label class="select-label" for="type">Pokemon Type:</label>
       <select id="type">
+        <option value="default" selected>Choose</option>
         <option value="grass">Grass</option>
         <option value="fire">Fire</option>
         <option value="water">Water</option>
@@ -36,38 +37,37 @@
         <option value="bug">Bug</option>
         <option value="fighting">Fighting</option>
         <option value="flying">Flying</option>
-        <option value="fairy">Fairy</option>
         <option value="psychic">Psychic</option>
         <option value="ground">Ground</option>
         <option value="rock">Rock</option>
         <option value="ghost">Ghost</option>
-        <option value="dark">Dark</option>
-        <option value="steel">Steel</option>
         <option value="dragon">Dragon</option>
       </select>
     </div>
     <div class="select-box">
       <label class="select-label" for="eggs">Pokemon Egg:</label>
       <select id="eggs">
-        <option value="egg-2">2km</option>
-        <option value="egg-5">5km</option>
-        <option value="egg-10">10km</option>
-        <option value="not-in-egg">Not in Egg</option>
+        <option value="default">Choose</option>
+        <option value="egg-2">2 km</option>
+        <option value="egg-5">5 km</option>
+        <option value="egg-10">10 km</option>
+        <option value="not-in-egg">Not in Eggs</option>
       </select>
     </div>
     <div class="select-box">
       <label class="select-label" for="order">Order by:</label>
       <select id="order">
-        <option value="more-spawn">More spawn</option>
-        <option value="less-spawn">Less spawn</option>
-        <option value="more-time-spawn">More spawn time</option>
-        <option value="less-time-spawn">Less spawn time</option>
-        <option value="a-z">A-Z</option>
-        <option value="z-a">Z-A</option>
+        <option value="default">Choose</option>
+        <option value="spawn_chance">More spawn</option>
+        <option value="spawn_chance_less">Less spawn</option>
+        <option value="spawn_time">More spawn time</option>
+        <option value="spawn_time_less">Less spawn time</option>
+        <option value="name">A-Z</option>
+        <option value="name_reverse">Z-A</option>
       </select>
     </div>
   </nav>
-  <main>
+  <main id="main-html">
     <h1>All Pokemons</h1>
     <section id="pokemon-card" class="pokemon-card"></section>
     <div id="popup-brackground" class="popup-brackground"></div>
@@ -75,6 +75,11 @@
       <div id="description-popup" class="description-popup">
       </div>
       <button id="popup-esc" class="button-popup-esc">X</button>
+    </div>
+    <div id="div-button-up" class="div-button-up">
+      <button id="button-up" class="button-up">
+        <span class="material-icons">arrow_upward</span>
+      </button>
     </div>
   </main>
   <footer class="creatby">Desenvolvido por: Carol e Jéssica</footer>

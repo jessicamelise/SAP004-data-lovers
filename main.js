@@ -1,11 +1,13 @@
-import { example } from './data.js';
-// import data from './data/lol/lol.js';
+import { filterData, sortData } from './data.js';
 import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
+
 
 let menuButton = document.getElementById("menu-click");
 let menuField = document.getElementById("menu-field");
 let pokemonCard = document.getElementById("pokemon-card");
+let mainHtml = document.getElementById("main-html")
+let buttonScrollUp = document.getElementById("button-up");
+let divButtonScrollUp = document.getElementById("div-button-up");
 
 function menuClick() {
   menuExhibit();
@@ -13,9 +15,28 @@ function menuClick() {
 
 function menuExhibit() {
   menuField.classList.toggle("menu-exhibit");
+  mainHtml.classList.toggle("main-html");
+  divButtonScrollUp.classList.toggle("adjust-div-scroll")
 }
 
 menuButton.addEventListener("click", menuClick);
+
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    buttonScrollUp.style.display = "block";
+  } else {
+    buttonScrollUp.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+buttonScrollUp.addEventListener("click", topFunction)
 
 function creatNewDiv(itens) {
   let newDiv = document.createElement("div");
@@ -39,15 +60,15 @@ function creatNewDiv(itens) {
   return newDiv;
 }
 
-function showAllCards() {
+function showAllCards(pokemon) {
   pokemonCard.innerHTML = ""
-  for (let list of data.pokemon) {
+  for (let list of pokemon) {
     let eachCard = creatNewDiv(list);
     pokemonCard.appendChild(eachCard);
   }
 }
 
-showAllCards();
+showAllCards(data.pokemon);
 
 let popUpBackGround = document.getElementById("popup-brackground");
 let popUpCard = document.getElementById("popup-card");
@@ -90,3 +111,93 @@ function informationPopUp(position) {
   descriptionPopUp.appendChild(newDivPopUp);
   return popUpCard;
 }
+
+
+let searchButton = document.querySelectorAll(".search-button");
+
+/* (verificar a necessidade dessa função, deu erro no teste)function catchTheValue() {
+  let sel = document.getElementById("type");
+  return console.log(sel.options[sel.selectedIndex].text);
+}*/
+
+searchButton[0].addEventListener("click", function () {
+  showAllCards(filterData(data.pokemon, "id", 1));
+})
+
+function filterPokemons() {
+  let typesOfPokemon = document.getElementById("type");
+
+  typesOfPokemon.addEventListener('change', () => {
+    if (typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText === "Choose") {
+      showAllCards(data.pokemon);
+    }
+
+    else {
+      showAllCards(filterData(data.pokemon, "type", typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText))
+    }
+  })
+
+  let eggs = document.getElementById("eggs");
+
+  eggs.addEventListener('change', function () {
+    if (eggs.options[eggs.selectedIndex].innerText === "Choose") {
+      showAllCards(data.pokemon);
+    }
+    else {
+      showAllCards(filterData(data.pokemon, "egg", eggs.options[eggs.selectedIndex].innerText));
+    }
+  })
+}
+
+filterPokemons();
+
+
+/*(verificar a necessidade dessa função, deu erro no teste)function newArray () {
+  let test1 = sortData(data.pokemon, "spawn_chance")
+  return test1;
+}*/
+
+function pokemonOrder() {
+  const mapFunction = () => {
+    data.pokemon.map(item => {
+      if (item["spawn_time"] === "00:00") {
+        item["spawn_time"] = "N/A"
+      }
+    })
+  }
+
+  let orderData = document.getElementById("order");
+
+  orderData.addEventListener('change', function () {
+    let choiceOrder = orderData.options[orderData.selectedIndex].value;
+    if (choiceOrder === "spawn_chance") {
+      showAllCards(sortData(data.pokemon, "spawn_chance").reverse());
+      mapFunction();
+    }
+    else if (choiceOrder === "spawn_chance_less") {
+      showAllCards(sortData(data.pokemon, "spawn_chance"));
+      mapFunction();
+    }
+    else if (choiceOrder === "name") {
+      showAllCards(sortData(data.pokemon, choiceOrder))
+      mapFunction();
+    }
+    else if (choiceOrder === "name_reverse") {
+      showAllCards(sortData(data.pokemon, "name").reverse())
+      mapFunction();
+    }
+    else if (choiceOrder === "spawn_time") {
+      showAllCards(sortData(data.pokemon, "spawn_time").reverse());
+      mapFunction();
+    }
+    else if (choiceOrder === "spawn_time_less") {
+      showAllCards(sortData(data.pokemon, "spawn_time"));
+      mapFunction();
+    }
+    else {
+      showAllCards(data.pokemon)
+    }
+  })
+}
+
+pokemonOrder();
