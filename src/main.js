@@ -8,6 +8,7 @@ let pokemonCard = document.getElementById("pokemon-card");
 let mainHtml = document.getElementById("main-html")
 let buttonScrollUp = document.getElementById("button-up");
 let divButtonScrollUp = document.getElementById("div-button-up");
+let pokedexTitle = document.getElementById("pokedex-title");
 
 function menuClick() {
   menuExhibit();
@@ -112,18 +113,6 @@ function informationPopUp(position) {
   return popUpCard;
 }
 
-
-// let searchButton = document.querySelectorAll(".search-button");
-
-/* (verificar a necessidade dessa função, deu erro no teste)function catchTheValue() {
-  let sel = document.getElementById("type");
-  return console.log(sel.options[sel.selectedIndex].text);
-}*/
-
-// searchButton[0].addEventListener("click", function () {
-//   showAllCards(filterData(data.pokemon, "id", 1));
-// })
-
 function filterPokemons() {
   let typesOfPokemon = document.getElementById("type");
 
@@ -150,12 +139,6 @@ function filterPokemons() {
 }
 
 filterPokemons();
-
-
-/*(verificar a necessidade dessa função, deu erro no teste)function newArray () {
-  let test1 = sortData(data.pokemon, "spawn_chance")
-  return test1;
-}*/
 
 function pokemonOrder() {
   const mapFunction = () => {
@@ -208,3 +191,7 @@ let searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", function click () {
   showAllCards(searchPokemons(data.pokemon, searchField.value));
 });
+
+pokedexTitle.addEventListener("click", function () {
+  showAllCards(data.pokemon);
+})

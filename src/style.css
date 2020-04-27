@@ -32,6 +32,7 @@ header {
     font-family: "pokemon";
     color: yellow;
     font-size: 60px;
+    cursor: pointer;
 }
 
 .menu-search {
