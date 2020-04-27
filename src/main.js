@@ -1,4 +1,4 @@
-import { filterData, sortData } from './data.js';
+import { filterData, sortData, searchPokemons } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 
@@ -113,16 +113,16 @@ function informationPopUp(position) {
 }
 
 
-let searchButton = document.querySelectorAll(".search-button");
+// let searchButton = document.querySelectorAll(".search-button");
 
 /* (verificar a necessidade dessa função, deu erro no teste)function catchTheValue() {
   let sel = document.getElementById("type");
   return console.log(sel.options[sel.selectedIndex].text);
 }*/
 
-searchButton[0].addEventListener("click", function () {
-  showAllCards(filterData(data.pokemon, "id", 1));
-})
+// searchButton[0].addEventListener("click", function () {
+//   showAllCards(filterData(data.pokemon, "id", 1));
+// })
 
 function filterPokemons() {
   let typesOfPokemon = document.getElementById("type");
@@ -201,3 +201,10 @@ function pokemonOrder() {
 }
 
 pokemonOrder();
+
+let searchField = document.getElementById("search-field");
+let searchButton = document.getElementById("search-button");
+
+searchButton.addEventListener("click", function click () {
+  showAllCards(searchPokemons(data.pokemon, searchField.value));
+});

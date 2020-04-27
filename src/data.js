@@ -17,3 +17,15 @@ export const sortData = (data, sortBy) => {
   })
     return data.slice().sort((a,b) =>a[sortBy]>b[sortBy]?1:-1);
 }
+
+export const searchPokemons = (list, letters) => {
+  let newList = [];
+
+  list.filter(function (item) {
+      if (item.name.toLowerCase().indexOf(letters.toLowerCase()) !== -1) {
+          newList.push(item);
+      }
+  })
+
+  return newList;
+}
