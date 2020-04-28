@@ -2,11 +2,12 @@ import { filterData, sortData, searchPokemons } from './data.js';
 import { menuExhibit,scrollFunction,showAllCards, escPopUp,  } from "./functions.js";
 import data from './data/pokemon/pokemon.js';
 
-
 let menuButton = document.getElementById("menu-click");
 let buttonScrollUp = document.getElementById("button-up");
 let pokedexTitle = document.getElementById("pokedex-title");
 let buttonEscPopUp = document.getElementById("popup-esc");
+let searchField = document.getElementById("search-field");
+let searchButton = document.getElementById("search-button");
 
 pokedexTitle.addEventListener("click", function () {
   showAllCards(data.pokemon);
@@ -22,8 +23,6 @@ function topFunction() {
 }
 
 buttonScrollUp.addEventListener("click", topFunction)
-
-showAllCards(data.pokemon);
 
 buttonEscPopUp.addEventListener("click", escPopUp);
 
@@ -51,8 +50,6 @@ function filterPokemons() {
     }
   })
 }
-
-filterPokemons();
 
 function pokemonOrder() {
   const mapFunction = () => {
@@ -97,12 +94,18 @@ function pokemonOrder() {
   })
 }
 
-pokemonOrder();
-
-let searchField = document.getElementById("search-field");
-let searchButton = document.getElementById("search-button");
-
 searchButton.addEventListener("click", function click () {
   showAllCards(searchPokemons(data.pokemon, searchField.value));
 });
 
+searchField.addEventListener("keyup", function (e) {
+  if (e.key === "Enter") {
+  showAllCards(searchPokemons(data.pokemon, searchField.value));
+  }
+})
+
+showAllCards(data.pokemon);
+
+pokemonOrder();
+
+filterPokemons();
