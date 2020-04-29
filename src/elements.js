@@ -1,11 +1,10 @@
 import data from './data/pokemon/pokemon.js';
-import { popUpExhibit } from '../src/main.js';
 
 export const elements = {
     pokemonCard: document.getElementById("pokemon-card"),
     mainHtml: document.getElementById("main-html"),
-    divButtonScrollUp: document.getElementById("div-button-up"),
-    buttonScrollUp: document.getElementById("button-up"),
+    divButtonScrollUp: document.getElementById("div-scroll-up"),
+    buttonScrollUp: document.getElementById("button-scroll-up"),
     menuField: document.getElementById("menu-field"),
     menuButton: document.getElementById("menu-click"),
     descriptionPopUp: document.getElementById("description-popup"),
@@ -20,7 +19,7 @@ export const elements = {
     pokemonOrder: document.getElementById("order"),
 }
 
-export function creatNewDiv (item) {
+export function creatNewDiv(item) {
     let newDiv = document.createElement("div");
     newDiv.classList.add("information-card");
     newDiv.id = item.id;
@@ -42,7 +41,7 @@ export function creatNewDiv (item) {
     return newDiv;
 }
 
-function informationPopUp (position) {
+function informationPopUp(position) {
     elements.descriptionPopUp.innerHTML = "";
     let newDivPopUp = document.createElement("div");
     newDivPopUp.classList.add("inside-popup");
@@ -63,4 +62,14 @@ function informationPopUp (position) {
     `;
     elements.descriptionPopUp.appendChild(newDivPopUp);
     return popUpCard;
+}
+
+function popUpExhibit() {
+    elements.popUpBackGround.classList.add("popup-brackground-exhibit");
+    elements.popUpCard.classList.add("popup-card-exhibit");
+}
+
+export function escPopUp() {
+    elements.popUpBackGround.classList.remove("popup-brackground-exhibit");
+    elements.popUpCard.classList.remove("popup-card-exhibit");
 }
