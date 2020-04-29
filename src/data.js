@@ -1,6 +1,6 @@
 import data from './data/pokemon/pokemon.js';
 
-const rules = {
+export const rules = {
   filterType: (list, filterValue) => {
     let newList = [];
     newList = list.filter((item) => !filterValue || item.type.includes(filterValue));
@@ -42,19 +42,17 @@ const rules = {
   },
   
   getFilterPokemon: (condition) => {
-    let pokemons = filterType(data.pokemon, condition.type);
-    pokemons = filterEgg(pokemons, condition.egg);
-    pokemons = searchPokemons(pokemons, condition.search);
-    pokemons = orderBy(pokemons, condition.sortBy, condition.isDesc);
+    let pokemons = rules.filterType(data.pokemon, condition.type);
+    pokemons = rules.filterEgg(pokemons, condition.egg);
+    pokemons = rules.searchPokemons(pokemons, condition.search);
+    pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
     return pokemons;
   }
 }
 
-const sortByType = {
+export const sortByType = {
   numeric: 0,
   alphabetic: 1,
   spawnChance: 2,
   spawnTime: 3,
 }
-
-export default rules;
