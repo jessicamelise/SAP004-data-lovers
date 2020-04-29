@@ -1,111 +1,95 @@
-import { filterData, sortData, searchPokemons } from './data.js';
-import { menuExhibit,scrollFunction,showAllCards, escPopUp,  } from "./functions.js";
-import data from './data/pokemon/pokemon.js';
+import rules from './data.js';
+import {elements, creatNewDiv} from './elements.js';
 
-let menuButton = document.getElementById("menu-click");
-let buttonScrollUp = document.getElementById("button-up");
-let pokedexTitle = document.getElementById("pokedex-title");
-let buttonEscPopUp = document.getElementById("popup-esc");
-let searchField = document.getElementById("search-field");
-let searchButton = document.getElementById("search-button");
+function menuClick() {
+  menuExhibit();
+}
 
-pokedexTitle.addEventListener("click", function () {
-  showAllCards(data.pokemon);
-})
+function menuExhibit() {
+  elements.menuField.classList.toggle("menu-exhibit");
+  elements.mainHtml.classList.toggle("main-html");
+  elements.divButtonScrollUp.classList.toggle("scroll-adjust");
+}
 
-menuButton.addEventListener("click", menuExhibit);
+elements.menuButton.addEventListener("click", menuClick);
 
-window.onscroll = function () { scrollFunction() };
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    buttonScrollUp.style.display = "block";
+  } else {
+    buttonScrollUp.style.display = "none";
+  }
+}
+
+window.onscroll = function() {scrollFunction()};
 
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
 
-buttonScrollUp.addEventListener("click", topFunction)
+elements.buttonScrollUp.addEventListener("click", topFunction);
 
-buttonEscPopUp.addEventListener("click", escPopUp);
-
-function filterPokemons() {
-  let typesOfPokemon = document.getElementById("type");
-
-  typesOfPokemon.addEventListener('change', () => {
-    if (typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText === "Choose") {
-      showAllCards(data.pokemon);
-    }
-
-    else {
-      showAllCards(filterData(data.pokemon, "type", typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText))
-    }
-  })
-
-  let eggs = document.getElementById("eggs");
-
-  eggs.addEventListener('change', function () {
-    if (eggs.options[eggs.selectedIndex].innerText === "Choose") {
-      showAllCards(data.pokemon);
-    }
-    else {
-      showAllCards(filterData(data.pokemon, "egg", eggs.options[eggs.selectedIndex].innerText));
-    }
-  })
+function popUpExhibit() {
+  elements.popUpBackGround.classList.add("popup-brackground-exhibit");
+  elements.popUpCard.classList.add("popup-card-exhibit");
 }
 
-function pokemonOrder() {
-  const mapFunction = () => {
-    data.pokemon.map(item => {
-      if (item["spawn_time"] === "00:00") {
-        item["spawn_time"] = "N/A"
-      }
-    })
-  }
-
-  let orderData = document.getElementById("order");
-
-  orderData.addEventListener('change', function () {
-    let choiceOrder = orderData.options[orderData.selectedIndex].value;
-    if (choiceOrder === "spawn_chance") {
-      showAllCards(sortData(data.pokemon, "spawn_chance").reverse());
-      mapFunction();
-    }
-    else if (choiceOrder === "spawn_chance_less") {
-      showAllCards(sortData(data.pokemon, "spawn_chance"));
-      mapFunction();
-    }
-    else if (choiceOrder === "name") {
-      showAllCards(sortData(data.pokemon, choiceOrder))
-      mapFunction();
-    }
-    else if (choiceOrder === "name_reverse") {
-      showAllCards(sortData(data.pokemon, "name").reverse())
-      mapFunction();
-    }
-    else if (choiceOrder === "spawn_time") {
-      showAllCards(sortData(data.pokemon, "spawn_time").reverse());
-      mapFunction();
-    }
-    else if (choiceOrder === "spawn_time_less") {
-      showAllCards(sortData(data.pokemon, "spawn_time"));
-      mapFunction();
-    }
-    else {
-      showAllCards(data.pokemon)
-    }
-  })
+function escPopUp() {
+  elements.popUpBackGround.classList.remove("popup-brackground-exhibit");
+  elements.popUpCard.classList.remove("popup-card-exhibit");
 }
 
-searchButton.addEventListener("click", function click () {
-  showAllCards(searchPokemons(data.pokemon, searchField.value));
-});
+elements.buttonEscPopUp.addEventListener("click", escPopUp);
 
-searchField.addEventListener("keyup", function (e) {
-  if (e.key === "Enter") {
-  showAllCards(searchPokemons(data.pokemon, searchField.value));
+elements.pokemonType.addEventListener('change', showFilterCards);
+
+elements.pokemonEgg.addEventListener('change', showFilterCards);
+
+elements.pokemonOrder.addEventListener('change', showFilterCards);
+
+elements.searchButton.addEventListener("click", showFilterCards);
+
+function showFilterCards() {
+  let conditions = {
+    type: elements.pokemonType.value,
+    egg: elements.pokemonEgg.value,
+    search: elements.searchField.value
+  };
+
+  if (elements.pokemonOrder.value === "id") {
+    conditions.sortBy = sortByType.numeric;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "a_z") {
+    conditions.sortBy = sortByType.alphabetic;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "spawn_chance") {
+    conditions.sortBy = sortByType.spawnChance;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "spawn_time") {
+    conditions.sortBy = sortByType.spawnTime;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "id_reverse") {
+    conditions.sortBy = sortByType.numeric;
+    conditions.isDesc = true;
+  } else if (elements.pokemonOrder.value === "a_z_reverse") {
+    conditions.sortBy = sortByType.alphabetic;
+    conditions.isDesc = true;
+  } else if (elements.pokemonOrder.value === "spawn_chance_reverse") {
+    conditions.sortBy = sortByType.spawnChance;
+    conditions.isDesc = true;
+  } else if (elements.pokemonOrder.value === "spawn_time_reverse") {
+    conditions.sortBy = sortByType.spawnTime;
+    conditions.isDesc = true;
   }
-})
+  let pokemons = rules.getFilterPokemon(conditions);
+  elements.pokemonCard.innerHTML = ""
+  for (let list of pokemons) {
+    let eachCard = creatNewDiv(list);
+    elements.pokemonCard.appendChild(eachCard);
+  }
+}
 
-showAllCards(data.pokemon);
+showFilterCards();
 
-pokemonOrder();
-
-filterPokemons();
+export { popUpExhibit } from '../src/main.js';
