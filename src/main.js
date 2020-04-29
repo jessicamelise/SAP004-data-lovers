@@ -1,9 +1,14 @@
-import rules from './data.js';
-import {elements, creatNewDiv} from './elements.js';
+import {rules, sortByType} from './data.js';
+import {elements, creatNewDiv, escPopUp} from './elements.js';
 
-function menuClick() {
-  menuExhibit();
-}
+elements.pokedexTitle.addEventListener("click", function click(){
+    elements.pokemonType.value = "";
+    elements.pokemonEgg.value = "";
+    elements.pokemonOrder.value = "id"
+    elements.searchField.value = ""
+ showFilterCards();
+});
+
 
 function menuExhibit() {
   elements.menuField.classList.toggle("menu-exhibit");
@@ -11,13 +16,13 @@ function menuExhibit() {
   elements.divButtonScrollUp.classList.toggle("scroll-adjust");
 }
 
-elements.menuButton.addEventListener("click", menuClick);
+elements.menuButton.addEventListener("click", menuExhibit);
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    buttonScrollUp.style.display = "block";
+    elements.buttonScrollUp.style.display = "block";
   } else {
-    buttonScrollUp.style.display = "none";
+    elements.buttonScrollUp.style.display = "none";
   }
 }
 
@@ -29,16 +34,6 @@ function topFunction() {
 }
 
 elements.buttonScrollUp.addEventListener("click", topFunction);
-
-function popUpExhibit() {
-  elements.popUpBackGround.classList.add("popup-brackground-exhibit");
-  elements.popUpCard.classList.add("popup-card-exhibit");
-}
-
-function escPopUp() {
-  elements.popUpBackGround.classList.remove("popup-brackground-exhibit");
-  elements.popUpCard.classList.remove("popup-card-exhibit");
-}
 
 elements.buttonEscPopUp.addEventListener("click", escPopUp);
 
@@ -91,5 +86,3 @@ function showFilterCards() {
 }
 
 showFilterCards();
-
-export { popUpExhibit } from '../src/main.js';
