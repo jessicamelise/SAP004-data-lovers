@@ -1,31 +1,58 @@
-// funções de exemplo
+import data from './data/pokemon/pokemon.js';
 
-export const filterData = (data, type, condition) => {
-  if (type === "type") {
-    return data.filter((item) => item[type].find(e => e === condition));
-  }
-  else {
-    return data.filter((item) => item[type] === condition);
-  }
-};
-
-export const sortData = (data, sortBy) => {
-  data.map(item => {
-    if(item["spawn_time"] === "N/A") {
-      item["spawn_time"] = "00:00"
+export const rules = {
+  filterType: (list, filterValue) => {
+    let newList = [];
+    newList = list.filter((item) => !filterValue || item.type.includes(filterValue));
+    return newList;
+  },
+  
+  filterEgg: (list, filterValue) => {
+    let newList = [];
+    newList = list.filter((item) => !filterValue || item.egg.includes(filterValue));
+    return newList;
+  },
+  
+  searchPokemons: (list, letters) => {
+    let newList = [];
+    newList = list.filter((item) => !letters || item.name.toLowerCase().includes(letters.toLowerCase()));
+    return newList;
+  },
+  
+  orderBy: (list, sortBy, isDesc) => {
+    let newList = [];
+    if (sortBy === sortByType.numeric) {
+        newList = list.sort((a, b) => a.id - b.id);
+    } else if (sortBy === sortByType.alphabetic) {
+        newList = list.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === sortByType.spawnChance) {
+        newList = list.sort((a, b) => b.spawn_chance - a.spawn_chance);
+    } else if (sortBy === sortByType.spawnTime) {
+        newList = list.sort(function (a, b) {
+            if (a.spawn_time === "N/A") {
+                a.spawn_time = "00:00"
+            }
+            return b.spawn_time.localeCompare(a.spawn_time);
+        })
     }
-  })
-    return data.slice().sort((a,b) =>a[sortBy]>b[sortBy]?1:-1);
+    if (isDesc) {
+        newList.reverse();
+    }
+    return newList;
+  },
+  
+  getFilterPokemon: (condition) => {
+    let pokemons = rules.filterType(data.pokemon, condition.type);
+    pokemons = rules.filterEgg(pokemons, condition.egg);
+    pokemons = rules.searchPokemons(pokemons, condition.search);
+    pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
+    return pokemons;
+  }
 }
 
-export const searchPokemons = (list, letters) => {
-  let newList = [];
-
-  list.filter(function (item) {
-      if (item.name.toLowerCase().indexOf(letters.toLowerCase()) !== -1) {
-          newList.push(item);
-      }
-  })
-
-  return newList;
+export const sortByType = {
+  numeric: 0,
+  alphabetic: 1,
+  spawnChance: 2,
+  spawnTime: 3,
 }

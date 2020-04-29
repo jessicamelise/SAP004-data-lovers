@@ -1,111 +1,88 @@
-import { filterData, sortData, searchPokemons } from './data.js';
-import { menuExhibit,scrollFunction,showAllCards, escPopUp,  } from "./functions.js";
-import data from './data/pokemon/pokemon.js';
+import {rules, sortByType} from './data.js';
+import {elements, creatNewDiv, escPopUp} from './elements.js';
 
-let menuButton = document.getElementById("menu-click");
-let buttonScrollUp = document.getElementById("button-up");
-let pokedexTitle = document.getElementById("pokedex-title");
-let buttonEscPopUp = document.getElementById("popup-esc");
-let searchField = document.getElementById("search-field");
-let searchButton = document.getElementById("search-button");
+elements.pokedexTitle.addEventListener("click", function click(){
+    elements.pokemonType.value = "";
+    elements.pokemonEgg.value = "";
+    elements.pokemonOrder.value = "id"
+    elements.searchField.value = ""
+ showFilterCards();
+});
 
-pokedexTitle.addEventListener("click", function () {
-  showAllCards(data.pokemon);
-})
 
-menuButton.addEventListener("click", menuExhibit);
+function menuExhibit() {
+  elements.menuField.classList.toggle("menu-exhibit");
+  elements.mainHtml.classList.toggle("main-html");
+  elements.divButtonScrollUp.classList.toggle("scroll-adjust");
+}
 
-window.onscroll = function () { scrollFunction() };
+elements.menuButton.addEventListener("click", menuExhibit);
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    elements.buttonScrollUp.style.display = "block";
+  } else {
+    elements.buttonScrollUp.style.display = "none";
+  }
+}
+
+window.onscroll = function() {scrollFunction()};
 
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
 
-buttonScrollUp.addEventListener("click", topFunction)
+elements.buttonScrollUp.addEventListener("click", topFunction);
 
-buttonEscPopUp.addEventListener("click", escPopUp);
+elements.buttonEscPopUp.addEventListener("click", escPopUp);
 
-function filterPokemons() {
-  let typesOfPokemon = document.getElementById("type");
+elements.pokemonType.addEventListener('change', showFilterCards);
 
-  typesOfPokemon.addEventListener('change', () => {
-    if (typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText === "Choose") {
-      showAllCards(data.pokemon);
-    }
+elements.pokemonEgg.addEventListener('change', showFilterCards);
 
-    else {
-      showAllCards(filterData(data.pokemon, "type", typesOfPokemon.options[typesOfPokemon.selectedIndex].innerText))
-    }
-  })
+elements.pokemonOrder.addEventListener('change', showFilterCards);
 
-  let eggs = document.getElementById("eggs");
+elements.searchButton.addEventListener("click", showFilterCards);
 
-  eggs.addEventListener('change', function () {
-    if (eggs.options[eggs.selectedIndex].innerText === "Choose") {
-      showAllCards(data.pokemon);
-    }
-    else {
-      showAllCards(filterData(data.pokemon, "egg", eggs.options[eggs.selectedIndex].innerText));
-    }
-  })
+function showFilterCards() {
+  let conditions = {
+    type: elements.pokemonType.value,
+    egg: elements.pokemonEgg.value,
+    search: elements.searchField.value
+  };
+
+  if (elements.pokemonOrder.value === "id") {
+    conditions.sortBy = sortByType.numeric;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "a_z") {
+    conditions.sortBy = sortByType.alphabetic;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "spawn_chance") {
+    conditions.sortBy = sortByType.spawnChance;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "spawn_time") {
+    conditions.sortBy = sortByType.spawnTime;
+    conditions.isDesc = false;
+  } else if (elements.pokemonOrder.value === "id_reverse") {
+    conditions.sortBy = sortByType.numeric;
+    conditions.isDesc = true;
+  } else if (elements.pokemonOrder.value === "a_z_reverse") {
+    conditions.sortBy = sortByType.alphabetic;
+    conditions.isDesc = true;
+  } else if (elements.pokemonOrder.value === "spawn_chance_reverse") {
+    conditions.sortBy = sortByType.spawnChance;
+    conditions.isDesc = true;
+  } else if (elements.pokemonOrder.value === "spawn_time_reverse") {
+    conditions.sortBy = sortByType.spawnTime;
+    conditions.isDesc = true;
+  }
+  let pokemons = rules.getFilterPokemon(conditions);
+  elements.pokemonCard.innerHTML = ""
+  for (let list of pokemons) {
+    let eachCard = creatNewDiv(list);
+    elements.pokemonCard.appendChild(eachCard);
+  }
 }
 
-function pokemonOrder() {
-  const mapFunction = () => {
-    data.pokemon.map(item => {
-      if (item["spawn_time"] === "00:00") {
-        item["spawn_time"] = "N/A"
-      }
-    })
-  }
-
-  let orderData = document.getElementById("order");
-
-  orderData.addEventListener('change', function () {
-    let choiceOrder = orderData.options[orderData.selectedIndex].value;
-    if (choiceOrder === "spawn_chance") {
-      showAllCards(sortData(data.pokemon, "spawn_chance").reverse());
-      mapFunction();
-    }
-    else if (choiceOrder === "spawn_chance_less") {
-      showAllCards(sortData(data.pokemon, "spawn_chance"));
-      mapFunction();
-    }
-    else if (choiceOrder === "name") {
-      showAllCards(sortData(data.pokemon, choiceOrder))
-      mapFunction();
-    }
-    else if (choiceOrder === "name_reverse") {
-      showAllCards(sortData(data.pokemon, "name").reverse())
-      mapFunction();
-    }
-    else if (choiceOrder === "spawn_time") {
-      showAllCards(sortData(data.pokemon, "spawn_time").reverse());
-      mapFunction();
-    }
-    else if (choiceOrder === "spawn_time_less") {
-      showAllCards(sortData(data.pokemon, "spawn_time"));
-      mapFunction();
-    }
-    else {
-      showAllCards(data.pokemon)
-    }
-  })
-}
-
-searchButton.addEventListener("click", function click () {
-  showAllCards(searchPokemons(data.pokemon, searchField.value));
-});
-
-searchField.addEventListener("keyup", function (e) {
-  if (e.key === "Enter") {
-  showAllCards(searchPokemons(data.pokemon, searchField.value));
-  }
-})
-
-showAllCards(data.pokemon);
-
-pokemonOrder();
-
-filterPokemons();
+showFilterCards();

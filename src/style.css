@@ -18,7 +18,6 @@ body {
 
 header {
     position: fixed;
-    right: 0;
     width: 100%;
     z-index: 1;
     display: flex;
@@ -98,15 +97,14 @@ nav {
     background-color: blue;
     visibility: hidden;
     height: 0px;
+    position: fixed;
+    width: 100%;
 }
 
 .menu-exhibit {
     visibility: visible;
     height: auto;
     margin-top: 200px;
-    position: fixed;
-    width: 100%;
-    
 }
 
 .select-box {
@@ -157,7 +155,7 @@ h1 {
 
 .pokemon-card {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin: 10px 0px;   
 }
@@ -174,9 +172,8 @@ h1 {
 
 .image-pokemon {
     background-color: white;
-    text-align: center;
     border-radius: 5px;
-    margin: 7px;
+    margin: 2px;
     width: 40%;
 }
 
@@ -184,7 +181,7 @@ h1 {
     background-color: white;
     border-radius: 5px;
     width: 50%;
-    margin: 7px;
+    margin: 2px;
     padding: 5px;
     font-family: Helvetica;
 }
@@ -273,32 +270,30 @@ h2 {
     background-color: gray;
 }
 
-.div-button-up {
-    display: flex;
+.div-scroll-up {
     position: fixed;
-    z-index: 1;
     align-self: flex-end;
     margin-top: 450px;
+    z-index: 1;
 }
 
-.button-up {
+.scroll-adjust {
+    margin-top: 400px;
+}
+
+.button-scroll-up {
+    display: none;
     width: 50px;
     height: 50px;
-    margin-right: 20px;
-    border-radius: 50px;
-    background-color: rgba(5, 5, 8, 0.8);
-    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
     border: none;
-    cursor: pointer;
-    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
 }
 
-.button-up:hover {
+.button-scroll-up:hover {
     background-color: gray;
-}
-
-.adjust-div-scroll {
-    margin-top: 400px;
 }
 
 .creatby {
@@ -359,7 +354,7 @@ h2 {
     }
 
     .main-html {
-        margin-top: 330px;
+        margin-top: 325px;
     }
 
     h1 {
@@ -384,11 +379,11 @@ h2 {
         height: 600px;
     }
 
-    .div-button-up {
-        margin-top: 410px;
+    .div-scroll-up {
+        margin-top: 400px;
     }
 
-    .adjust-div-scroll {
+    .scroll-adjust {
         margin-top: 280px;
     }
 }
