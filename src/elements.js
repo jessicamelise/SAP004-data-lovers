@@ -61,7 +61,7 @@ function informationPopUp(position) {
     </ul> 
     `;
     elements.descriptionPopUp.appendChild(newDivPopUp);
-    return popUpCard;
+    return elements.popUpCard;
 }
 
 function popUpExhibit() {
