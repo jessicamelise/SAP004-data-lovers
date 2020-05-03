@@ -6,7 +6,7 @@ elements.pokedexTitle.addEventListener("click", function click(){
     elements.pokemonEgg.value = "";
     elements.pokemonOrder.value = "id"
     elements.searchField.value = ""
- showFilterCards();
+  showFilterCards();
 });
 
 

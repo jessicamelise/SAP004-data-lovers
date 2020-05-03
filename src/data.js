@@ -1,7 +1,7 @@
 import data from './data/pokemon/pokemon.js';
 
 export const rules = {
-  filterType: (list, filterValue) => {
+  filterType:  (list, filterValue) => {
     let newList = [];
     newList = list.filter((item) => !filterValue || item.type.includes(filterValue));
     return newList;
