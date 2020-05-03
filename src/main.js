@@ -1,4 +1,4 @@
-import {rules, sortByType} from './data.js';
+import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
 
 elements.pokedexTitle.addEventListener("click", function click(){
@@ -77,7 +77,7 @@ function showFilterCards() {
     conditions.sortBy = sortByType.spawnTime;
     conditions.isDesc = true;
   }
-  let pokemons = rules.getFilterPokemon(conditions);
+  let pokemons = getFilterPokemon(conditions);
   elements.pokemonCard.innerHTML = ""
   for (let list of pokemons) {
     let eachCard = creatNewDiv(list);

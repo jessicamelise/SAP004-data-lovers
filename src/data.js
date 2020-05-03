@@ -39,14 +39,6 @@ export const rules = {
         newList.reverse();
     }
     return newList;
-  },
-  
-  getFilterPokemon: (condition) => {
-    let pokemons = rules.filterType(data.pokemon, condition.type);
-    pokemons = rules.filterEgg(pokemons, condition.egg);
-    pokemons = rules.searchPokemons(pokemons, condition.search);
-    pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
-    return pokemons;
   }
 }
 
@@ -55,4 +47,12 @@ export const sortByType = {
   alphabetic: 1,
   spawnChance: 2,
   spawnTime: 3,
+}
+
+export const getFilterPokemon =  (condition) => {
+  let pokemons = rules.filterType(data.pokemon, condition.type);
+  pokemons = rules.filterEgg(pokemons, condition.egg);
+  pokemons = rules.searchPokemons(pokemons, condition.search);
+  pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
+  return pokemons;
 }
