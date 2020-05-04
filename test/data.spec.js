@@ -31,6 +31,15 @@ const pokemon = [{
   egg: "2 km",
   "spawn_time": "08:45",
   "spawn_chance": 0.253
+},
+{
+  id: 132,
+  name: "Ditto",
+  type: ["Normal"],
+  egg: "Not in Eggs",
+  "spawn_time": "N/A",
+  "spawn_chance": 0
+
 }]
 
 
@@ -108,12 +117,21 @@ describe('rules', () => {
     it('is a function', () => {
       expect(typeof rules.orderBy).toBe('function');
     })
-    it('It returns the order by Numbers', () => {
+    it('It returns the order by Spawn Time', () => {
       expect(rules.orderBy(pokemon, sortByType.spawnTime, true)).toEqual(
         [{
+          id: 132,
+          name: "Ditto",
+          type: ["Normal"],
+          egg: "Not in Eggs",
+          "spawn_time": "00:00",
+          "spawn_chance": 0
+
+        },
+        {
           id: 2,
           name: 'Ivysaur',
-          type: [ 'Grass', 'Poison' ],
+          type: ['Grass', 'Poison'],
           egg: 'Not in Eggs',
           spawn_time: '07:00',
           spawn_chance: 0.042
@@ -121,7 +139,7 @@ describe('rules', () => {
         {
           id: 4,
           name: 'Charmander',
-          type: [ 'Fire' ],
+          type: ['Fire'],
           egg: '2 km',
           spawn_time: '08:45',
           spawn_chance: 0.253
@@ -129,7 +147,7 @@ describe('rules', () => {
         {
           id: 3,
           name: 'Venusaur',
-          type: [ 'Grass', 'Poison' ],
+          type: ['Grass', 'Poison'],
           egg: 'Not in Eggs',
           spawn_time: '11:30',
           spawn_chance: 0.017
@@ -137,7 +155,7 @@ describe('rules', () => {
         {
           id: 1,
           name: 'Bulbasaur',
-          type: [ 'Grass', 'Poison' ],
+          type: ['Grass', 'Poison'],
           egg: '2 km',
           spawn_time: '20:00',
           spawn_chance: 0.69
@@ -148,39 +166,47 @@ describe('rules', () => {
 
     it('It returns the order by reverse Numbers', () => {
       expect(rules.orderBy(pokemon, sortByType.numeric, true)).toEqual(
-        [
-          {
-            id: 4,
-            name: 'Charmander',
-            type: ['Fire'],
-            egg: '2 km',
-            spawn_time: '08:45',
-            spawn_chance: 0.253
-          },
-          {
-            id: 3,
-            name: 'Venusaur',
-            type: ['Grass', 'Poison'],
-            egg: 'Not in Eggs',
-            spawn_time: '11:30',
-            spawn_chance: 0.017
-          },
-          {
-            id: 2,
-            name: 'Ivysaur',
-            type: ['Grass', 'Poison'],
-            egg: 'Not in Eggs',
-            spawn_time: '07:00',
-            spawn_chance: 0.042
-          },
-          {
-            id: 1,
-            name: 'Bulbasaur',
-            type: ['Grass', 'Poison'],
-            egg: '2 km',
-            spawn_time: '20:00',
-            spawn_chance: 0.69
-          }
+        [{
+          id: 132,
+          name: "Ditto",
+          type: ["Normal"],
+          egg: "Not in Eggs",
+          "spawn_time": "00:00",
+          "spawn_chance": 0
+
+        },
+        {
+          id: 4,
+          name: 'Charmander',
+          type: ['Fire'],
+          egg: '2 km',
+          spawn_time: '08:45',
+          spawn_chance: 0.253
+        },
+        {
+          id: 3,
+          name: 'Venusaur',
+          type: ['Grass', 'Poison'],
+          egg: 'Not in Eggs',
+          spawn_time: '11:30',
+          spawn_chance: 0.017
+        },
+        {
+          id: 2,
+          name: 'Ivysaur',
+          type: ['Grass', 'Poison'],
+          egg: 'Not in Eggs',
+          spawn_time: '07:00',
+          spawn_chance: 0.042
+        },
+        {
+          id: 1,
+          name: 'Bulbasaur',
+          type: ['Grass', 'Poison'],
+          egg: '2 km',
+          spawn_time: '20:00',
+          spawn_chance: 0.69
+        }
         ]
       );
     })
@@ -189,7 +215,7 @@ describe('rules', () => {
         [{
           id: 1,
           name: 'Bulbasaur',
-          type: [ 'Grass', 'Poison' ],
+          type: ['Grass', 'Poison'],
           egg: '2 km',
           spawn_time: '20:00',
           spawn_chance: 0.69
@@ -197,15 +223,24 @@ describe('rules', () => {
         {
           id: 4,
           name: 'Charmander',
-          type: [ 'Fire' ],
+          type: ['Fire'],
           egg: '2 km',
           spawn_time: '08:45',
           spawn_chance: 0.253
         },
         {
+          id: 132,
+          name: "Ditto",
+          type: ["Normal"],
+          egg: "Not in Eggs",
+          "spawn_time": "00:00",
+          "spawn_chance": 0
+
+        },
+        {
           id: 2,
           name: 'Ivysaur',
-          type: [ 'Grass', 'Poison' ],
+          type: ['Grass', 'Poison'],
           egg: 'Not in Eggs',
           spawn_time: '07:00',
           spawn_chance: 0.042
@@ -213,7 +248,7 @@ describe('rules', () => {
         {
           id: 3,
           name: 'Venusaur',
-          type: [ 'Grass', 'Poison' ],
+          type: ['Grass', 'Poison'],
           egg: 'Not in Eggs',
           spawn_time: '11:30',
           spawn_chance: 0.017
@@ -227,7 +262,7 @@ describe('rules', () => {
           {
             id: 1,
             name: 'Bulbasaur',
-            type: [ 'Grass', 'Poison' ],
+            type: ['Grass', 'Poison'],
             egg: '2 km',
             spawn_time: '20:00',
             spawn_chance: 0.69
@@ -235,7 +270,7 @@ describe('rules', () => {
           {
             id: 4,
             name: 'Charmander',
-            type: [ 'Fire' ],
+            type: ['Fire'],
             egg: '2 km',
             spawn_time: '08:45',
             spawn_chance: 0.253
@@ -243,7 +278,7 @@ describe('rules', () => {
           {
             id: 2,
             name: 'Ivysaur',
-            type: [ 'Grass', 'Poison' ],
+            type: ['Grass', 'Poison'],
             egg: 'Not in Eggs',
             spawn_time: '07:00',
             spawn_chance: 0.042
@@ -251,10 +286,19 @@ describe('rules', () => {
           {
             id: 3,
             name: 'Venusaur',
-            type: [ 'Grass', 'Poison' ],
+            type: ['Grass', 'Poison'],
             egg: 'Not in Eggs',
             spawn_time: '11:30',
             spawn_chance: 0.017
+          },
+          {
+            id: 132,
+            name: "Ditto",
+            type: ["Normal"],
+            egg: "Not in Eggs",
+            "spawn_time": "00:00",
+            "spawn_chance": 0
+
           }
         ]
       );
