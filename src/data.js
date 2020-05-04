@@ -1,5 +1,3 @@
-import data from './data/pokemon/pokemon.js';
-
 export const rules = {
   filterType:  (list, filterValue) => {
     let newList = [];
@@ -49,10 +47,4 @@ export const sortByType = {
   spawnTime: 3,
 }
 
-export const getFilterPokemon =  (condition) => {
-  let pokemons = rules.filterType(data.pokemon, condition.type);
-  pokemons = rules.filterEgg(pokemons, condition.egg);
-  pokemons = rules.searchPokemons(pokemons, condition.search);
-  pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
-  return pokemons;
-}
+
