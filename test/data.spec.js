@@ -1,48 +1,5 @@
 import { rules, sortByType } from '../src/data.js';
-
-const pokemon = [{
-  id: 1,
-  name: "Bulbasaur",
-  type: ["Grass", "Poison"],
-  egg: "2 km",
-  "spawn_time": "20:00",
-  "spawn_chance": 0.69
-},
-{
-  id: 2,
-  name: "Ivysaur",
-  type: ["Grass", "Poison"],
-  egg: "Not in Eggs",
-  "spawn_time": "07:00",
-  "spawn_chance": 0.042
-},
-{
-  id: 3,
-  name: "Venusaur",
-  type: ["Grass", "Poison"],
-  egg: "Not in Eggs",
-  "spawn_time": "11:30",
-  "spawn_chance": 0.017
-},
-{
-  id: 4,
-  name: "Charmander",
-  type: ["Fire"],
-  egg: "2 km",
-  "spawn_time": "08:45",
-  "spawn_chance": 0.253
-},
-{
-  id: 132,
-  name: "Ditto",
-  type: ["Normal"],
-  egg: "Not in Eggs",
-  "spawn_time": "N/A",
-  "spawn_chance": 0
-
-}]
-
-
+import {dataPokemon, Bulbasaur, Ivysaur, Venusaur, Charmander, Ditto}  from '../src/arraypokemon.js'
 describe('rules', () => {
 
   it('should be an object', () => {
@@ -54,16 +11,7 @@ describe('rules', () => {
       expect(typeof rules.filterType).toBe('function');
     })
     it('It returns the right type', () => {
-      expect(rules.filterType(pokemon, "Fire")).toEqual(
-        [{
-          id: 4,
-          name: "Charmander",
-          type: ["Fire"],
-          egg: "2 km",
-          "spawn_time": "08:45",
-          "spawn_chance": 0.253
-        }]
-      );
+      expect(rules.filterType(dataPokemon, "Fire")).toEqual([Charmander]);
     })
 
   });
@@ -73,24 +21,7 @@ describe('rules', () => {
       expect(typeof rules.filterEgg).toBe('function');
     })
     it('It returns the distance of egg', () => {
-      expect(rules.filterEgg(pokemon, "2 km")).toEqual(
-        [{
-          id: 1,
-          name: "Bulbasaur",
-          type: ["Grass", "Poison"],
-          egg: "2 km",
-          "spawn_time": "20:00",
-          "spawn_chance": 0.69
-        },
-        {
-          id: 4,
-          name: "Charmander",
-          type: ["Fire"],
-          egg: "2 km",
-          "spawn_time": "08:45",
-          "spawn_chance": 0.253
-        }]
-      );
+      expect(rules.filterEgg(dataPokemon, "2 km")).toEqual([Bulbasaur, Charmander]);
     })
 
   });
@@ -100,16 +31,7 @@ describe('rules', () => {
       expect(typeof rules.searchPokemons).toBe('function');
     })
     it('It returns the right search', () => {
-      expect(rules.searchPokemons(pokemon, "Venusaur")).toEqual(
-        [{
-          id: 3,
-          name: "Venusaur",
-          type: ["Grass", "Poison"],
-          egg: "Not in Eggs",
-          "spawn_time": "11:30",
-          "spawn_chance": 0.017
-        }]
-      );
+      expect(rules.searchPokemons(dataPokemon, "Venusaur")).toEqual([Venusaur]);
     })
   });
 
@@ -118,189 +40,25 @@ describe('rules', () => {
       expect(typeof rules.orderBy).toBe('function');
     })
     it('It returns the order by Spawn Time', () => {
-      expect(rules.orderBy(pokemon, sortByType.spawnTime, true)).toEqual(
-        [{
-          id: 132,
-          name: "Ditto",
-          type: ["Normal"],
-          egg: "Not in Eggs",
-          "spawn_time": "00:00",
-          "spawn_chance": 0
-
-        },
-        {
-          id: 2,
-          name: 'Ivysaur',
-          type: ['Grass', 'Poison'],
-          egg: 'Not in Eggs',
-          spawn_time: '07:00',
-          spawn_chance: 0.042
-        },
-        {
-          id: 4,
-          name: 'Charmander',
-          type: ['Fire'],
-          egg: '2 km',
-          spawn_time: '08:45',
-          spawn_chance: 0.253
-        },
-        {
-          id: 3,
-          name: 'Venusaur',
-          type: ['Grass', 'Poison'],
-          egg: 'Not in Eggs',
-          spawn_time: '11:30',
-          spawn_chance: 0.017
-        },
-        {
-          id: 1,
-          name: 'Bulbasaur',
-          type: ['Grass', 'Poison'],
-          egg: '2 km',
-          spawn_time: '20:00',
-          spawn_chance: 0.69
-        }
-        ]
-      );
+      expect(rules.orderBy(dataPokemon, sortByType.spawnTime, true)).toEqual(
+        [Ditto, Ivysaur, Charmander, Venusaur, Bulbasaur]
+      )
+      
     })
 
     it('It returns the order by reverse Numbers', () => {
-      expect(rules.orderBy(pokemon, sortByType.numeric, true)).toEqual(
-        [{
-          id: 132,
-          name: "Ditto",
-          type: ["Normal"],
-          egg: "Not in Eggs",
-          "spawn_time": "00:00",
-          "spawn_chance": 0
-
-        },
-        {
-          id: 4,
-          name: 'Charmander',
-          type: ['Fire'],
-          egg: '2 km',
-          spawn_time: '08:45',
-          spawn_chance: 0.253
-        },
-        {
-          id: 3,
-          name: 'Venusaur',
-          type: ['Grass', 'Poison'],
-          egg: 'Not in Eggs',
-          spawn_time: '11:30',
-          spawn_chance: 0.017
-        },
-        {
-          id: 2,
-          name: 'Ivysaur',
-          type: ['Grass', 'Poison'],
-          egg: 'Not in Eggs',
-          spawn_time: '07:00',
-          spawn_chance: 0.042
-        },
-        {
-          id: 1,
-          name: 'Bulbasaur',
-          type: ['Grass', 'Poison'],
-          egg: '2 km',
-          spawn_time: '20:00',
-          spawn_chance: 0.69
-        }
-        ]
+      expect(rules.orderBy(dataPokemon, sortByType.numeric, true)).toEqual(
+        [Ditto, Charmander, Venusaur, Ivysaur, Bulbasaur]
       );
     })
     it('It returns the order by Alphabetic', () => {
-      expect(rules.orderBy(pokemon, sortByType.alphabetic, false)).toEqual(
-        [{
-          id: 1,
-          name: 'Bulbasaur',
-          type: ['Grass', 'Poison'],
-          egg: '2 km',
-          spawn_time: '20:00',
-          spawn_chance: 0.69
-        },
-        {
-          id: 4,
-          name: 'Charmander',
-          type: ['Fire'],
-          egg: '2 km',
-          spawn_time: '08:45',
-          spawn_chance: 0.253
-        },
-        {
-          id: 132,
-          name: "Ditto",
-          type: ["Normal"],
-          egg: "Not in Eggs",
-          "spawn_time": "00:00",
-          "spawn_chance": 0
-
-        },
-        {
-          id: 2,
-          name: 'Ivysaur',
-          type: ['Grass', 'Poison'],
-          egg: 'Not in Eggs',
-          spawn_time: '07:00',
-          spawn_chance: 0.042
-        },
-        {
-          id: 3,
-          name: 'Venusaur',
-          type: ['Grass', 'Poison'],
-          egg: 'Not in Eggs',
-          spawn_time: '11:30',
-          spawn_chance: 0.017
-        }
-        ]
+      expect(rules.orderBy(dataPokemon, sortByType.alphabetic, false)).toEqual(
+        [Bulbasaur, Charmander, Ditto, Ivysaur, Venusaur ]
       );
     })
     it('It returns the order by Spawn Chance', () => {
-      expect(rules.orderBy(pokemon, sortByType.spawnChance, false)).toEqual(
-        [
-          {
-            id: 1,
-            name: 'Bulbasaur',
-            type: ['Grass', 'Poison'],
-            egg: '2 km',
-            spawn_time: '20:00',
-            spawn_chance: 0.69
-          },
-          {
-            id: 4,
-            name: 'Charmander',
-            type: ['Fire'],
-            egg: '2 km',
-            spawn_time: '08:45',
-            spawn_chance: 0.253
-          },
-          {
-            id: 2,
-            name: 'Ivysaur',
-            type: ['Grass', 'Poison'],
-            egg: 'Not in Eggs',
-            spawn_time: '07:00',
-            spawn_chance: 0.042
-          },
-          {
-            id: 3,
-            name: 'Venusaur',
-            type: ['Grass', 'Poison'],
-            egg: 'Not in Eggs',
-            spawn_time: '11:30',
-            spawn_chance: 0.017
-          },
-          {
-            id: 132,
-            name: "Ditto",
-            type: ["Normal"],
-            egg: "Not in Eggs",
-            "spawn_time": "00:00",
-            "spawn_chance": 0
-
-          }
-        ]
+      expect(rules.orderBy(dataPokemon, sortByType.spawnChance, false)).toEqual(
+        [Bulbasaur, Charmander,Ivysaur, Venusaur, Ditto]
       );
     })
 

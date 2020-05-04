@@ -28,9 +28,10 @@ export const rules = {
     } else if (sortBy === sortByType.spawnTime) {
         newList = list.sort(function (a, b) {
             if (a.spawn_time === "N/A") {
-                a.spawn_time = "00:00"
+              return  a.spawn_time = "00:00"
             }
-            return b.spawn_time.localeCompare(a.spawn_time);
+              return b.spawn_time.localeCompare(a.spawn_time);
+            
         })
     }
     if (isDesc) {
