@@ -1,6 +1,8 @@
-import { sortByType, rules} from './data.js';
+import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
 import data from './data/pokemon/pokemon.js';
+
+
 
 elements.pokedexTitle.addEventListener("click", function click(){
     elements.pokemonType.value = "";
@@ -78,19 +80,12 @@ function showFilterCards() {
     conditions.sortBy = sortByType.spawnTime;
     conditions.isDesc = true;
   }
-  let pokemons = getFilterPokemon(conditions);
+  let pokemons = getFilterPokemon(conditions, data.pokemon);
   elements.pokemonCard.innerHTML = ""
   for (let list of pokemons) {
     let eachCard = creatNewDiv(list);
     elements.pokemonCard.appendChild(eachCard);
   }
-}
-const getFilterPokemon =  (condition) => {
-  let pokemons = rules.filterType(data.pokemon, condition.type);
-  pokemons = rules.filterEgg(pokemons, condition.egg);
-  pokemons = rules.searchPokemons(pokemons, condition.search);
-  pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
-  return pokemons;
 }
 
 showFilterCards();

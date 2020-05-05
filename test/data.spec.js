@@ -1,4 +1,4 @@
-import { rules, sortByType } from '../src/data.js';
+import { rules, sortByType, getFilterPokemon} from '../src/data.js';
 import {dataPokemon, Bulbasaur, Ivysaur, Venusaur, Charmander, Ditto}  from '../src/arraypokemon.js'
 
 describe('rules', () => {
@@ -33,6 +33,7 @@ describe('rules', () => {
     it('It returns the right search', () => {
       expect(rules.searchPokemons(dataPokemon, "Venusaur")).toEqual([Venusaur]);
     })
+
   });
 
   describe('orderBy', () => {
@@ -60,4 +61,9 @@ describe('rules', () => {
       );
     })
   });
-})
+  
+  describe('Get Filter Pokémon', () => {
+  it('It returns the order by reverse Numbers', () => {
+      expect(getFilterPokemon( {type: "Fire"}, dataPokemon)).toEqual([Charmander]);
+    })
+})})

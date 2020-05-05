@@ -1,3 +1,4 @@
+
 export const rules = {
   filterType: (list, filterValue) => {
     return list.filter((item) => !filterValue || item.type.includes(filterValue));
@@ -40,4 +41,13 @@ export const sortByType = {
   spawnTime: 3,
 }
 
+/* istanbul ignore next */ 
+
+export const getFilterPokemon =  (condition,data) => {
+  let pokemons = rules.filterType(data, condition.type);
+  pokemons = rules.filterEgg(pokemons, condition.egg);
+  pokemons = rules.searchPokemons(pokemons, condition.search);
+  pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
+  return pokemons;
+}
 
