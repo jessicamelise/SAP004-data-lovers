@@ -1,5 +1,6 @@
 import { rules, sortByType } from '../src/data.js';
 import {dataPokemon, Bulbasaur, Ivysaur, Venusaur, Charmander, Ditto}  from '../src/arraypokemon.js'
+
 describe('rules', () => {
 
   it('should be an object', () => {
@@ -23,7 +24,6 @@ describe('rules', () => {
     it('It returns the distance of egg', () => {
       expect(rules.filterEgg(dataPokemon, "2 km")).toEqual([Bulbasaur, Charmander]);
     })
-
   });
 
   describe('searchPokemons', () => {
@@ -39,13 +39,11 @@ describe('rules', () => {
     it('is a function', () => {
       expect(typeof rules.orderBy).toBe('function');
     })
-    it('It returns the order by Spawn Time', () => {
+    it('It returns the order by reverse Spawn Time', () => {
       expect(rules.orderBy(dataPokemon, sortByType.spawnTime, true)).toEqual(
         [Ditto, Ivysaur, Charmander, Venusaur, Bulbasaur]
-      )
-      
+      );
     })
-
     it('It returns the order by reverse Numbers', () => {
       expect(rules.orderBy(dataPokemon, sortByType.numeric, true)).toEqual(
         [Ditto, Charmander, Venusaur, Ivysaur, Bulbasaur]
@@ -61,9 +59,5 @@ describe('rules', () => {
         [Bulbasaur, Charmander,Ivysaur, Venusaur, Ditto]
       );
     })
-
-
   });
-
-
 })
