@@ -41,7 +41,7 @@ export const sortByType = {
   spawnTime: 3,
 }
 
-/* istanbul ignore next */ 
+
 
 export const getFilterPokemon =  (condition,data) => {
   let pokemons = rules.filterType(data, condition.type);
