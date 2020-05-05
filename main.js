@@ -1,12 +1,13 @@
-import {rules, sortByType} from './data.js';
+import { sortByType, rules} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
+import data from './data/pokemon/pokemon.js';
 
 elements.pokedexTitle.addEventListener("click", function click(){
     elements.pokemonType.value = "";
     elements.pokemonEgg.value = "";
     elements.pokemonOrder.value = "id"
     elements.searchField.value = ""
- showFilterCards();
+  showFilterCards();
 });
 
 
@@ -77,12 +78,19 @@ function showFilterCards() {
     conditions.sortBy = sortByType.spawnTime;
     conditions.isDesc = true;
   }
-  let pokemons = rules.getFilterPokemon(conditions);
+  let pokemons = getFilterPokemon(conditions);
   elements.pokemonCard.innerHTML = ""
   for (let list of pokemons) {
     let eachCard = creatNewDiv(list);
     elements.pokemonCard.appendChild(eachCard);
   }
+}
+const getFilterPokemon =  (condition) => {
+  let pokemons = rules.filterType(data.pokemon, condition.type);
+  pokemons = rules.filterEgg(pokemons, condition.egg);
+  pokemons = rules.searchPokemons(pokemons, condition.search);
+  pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
+  return pokemons;
 }
 
 showFilterCards();
