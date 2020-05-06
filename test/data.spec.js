@@ -1,4 +1,4 @@
-import { rules, sortByType, getFilterPokemon} from '../src/data.js';
+import { rules, sortByType, getFilterPokemon,throwNewError} from '../src/data.js';
 import {dataPokemon, Bulbasaur, Ivysaur, Venusaur, Charmander, Ditto}  from '../src/arraypokemon.js'
 
 describe('rules', () => {
@@ -60,9 +60,19 @@ describe('rules', () => {
       );
     })
   });
-  
+  })
+
   describe('Get Filter Pokémon', () => {
-  it('It returns the order by reverse Numbers', () => {
-      expect(getFilterPokemon( {type: "Fire"}, dataPokemon)).toEqual([Charmander]);
-    })
-})})
+    it('It returns the Charmander when we call the fire type', () => {
+        expect(getFilterPokemon( {type: "Fire"}, dataPokemon)).toEqual([Charmander]);
+      })
+  })
+
+describe('throwNewError', () => {
+  it('is a function', () => {
+    expect(typeof throwNewError).toBe('function');
+  })
+
+it('It should throw a new error when did not receive the right parameters', () => {
+    expect(() => throwNewError()).toThrow(TypeError);
+  })})
