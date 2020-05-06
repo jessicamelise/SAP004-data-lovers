@@ -2,21 +2,18 @@ import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
 import data from './data/pokemon/pokemon.js';
 
-
-
 elements.pokedexTitle.addEventListener("click", function click(){
     elements.pokemonType.value = "";
     elements.pokemonEgg.value = "";
-    elements.pokemonOrder.value = "id"
+    elements.pokemonOrder.value = ""
     elements.searchField.value = ""
   showFilterCards();
 });
 
-
 function menuExhibit() {
   elements.menuField.classList.toggle("menu-exhibit");
   elements.mainHtml.classList.toggle("main-html");
-  elements.divButtonScrollUp.classList.toggle("scroll-adjust");
+  elements.headerShadow.classList.toggle("styling-header");
 }
 
 elements.menuButton.addEventListener("click", menuExhibit);
@@ -55,7 +52,7 @@ function showFilterCards() {
     search: elements.searchField.value
   };
 
-  if (elements.pokemonOrder.value === "id") {
+  if (elements.pokemonOrder.value === "id" || elements.pokemonOrder.value === "") {
     conditions.sortBy = sortByType.numeric;
     conditions.isDesc = false;
   } else if (elements.pokemonOrder.value === "a_z") {
@@ -80,6 +77,7 @@ function showFilterCards() {
     conditions.sortBy = sortByType.spawnTime;
     conditions.isDesc = true;
   }
+
   let pokemons = getFilterPokemon(conditions, data.pokemon);
   elements.pokemonCard.innerHTML = ""
   for (let list of pokemons) {
