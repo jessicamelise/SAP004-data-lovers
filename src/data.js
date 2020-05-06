@@ -15,8 +15,11 @@ export const rules = {
   orderBy: (list, sortBy, isDesc) => {
     let newList = [];
     list.map(item => {
-      if (item.spawn_time ==="N/A") {
-      return item.spawn_time = "00:00"}})
+      if (item.spawn_time === "N/A") {
+        return item.spawn_time = "00:00";
+      }
+    })   
+     
     if (sortBy === sortByType.numeric) {
       newList = list.sort((a, b) => a.id - b.id);
     } else if (sortBy === sortByType.alphabetic) {
@@ -24,7 +27,7 @@ export const rules = {
     } else if (sortBy === sortByType.spawnChance) {
       newList = list.sort((a, b) => b.spawn_chance - a.spawn_chance);
     } else {
-      newList = list.sort( (a, b) =>  b.spawn_time.localeCompare(a.spawn_time))
+      newList = list.sort((a, b) => b.spawn_time.localeCompare(a.spawn_time));
     }
 
     if (isDesc) {
@@ -41,9 +44,7 @@ export const sortByType = {
   spawnTime: 3,
 }
 
-
-
-export const getFilterPokemon =  (condition,data) => {
+export const getFilterPokemon = (condition, data) => {
   let pokemons = rules.filterType(data, condition.type);
   pokemons = rules.filterEgg(pokemons, condition.egg);
   pokemons = rules.searchPokemons(pokemons, condition.search);
