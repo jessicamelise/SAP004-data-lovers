@@ -17,6 +17,7 @@ export const elements = {
     pokemonType: document.getElementById("type"),
     pokemonEgg: document.getElementById("eggs"),
     pokemonOrder: document.getElementById("order"),
+    headerShadow: document.getElementById("styling-header")
 }
 
 export function creatNewDiv(item) {
@@ -25,12 +26,12 @@ export function creatNewDiv(item) {
     newDiv.id = item.id;
     newDiv.innerHTML = `
         <aside class="image-pokemon">
-        <img src="${item.img}" alt="${item.name}">
+        <img src="${item.img}" alt="${item.name}" class="image-size">
         </aside>
         <div class="description">
-        <p>Number: ${item.num}</p>
-        <p>Name: ${item.name}</p>
-        <p>Type: ${item.type.join(', ')}</p>
+        <p class="pokemon-name">${item.name}</p>
+        <p>${item.num}</p>
+        <p>${item.type.join(', ')}</p>
         </div>
     `;
     let click = function () {
@@ -46,7 +47,7 @@ function informationPopUp(position) {
     let newDivPopUp = document.createElement("div");
     newDivPopUp.classList.add("inside-popup");
     newDivPopUp.innerHTML = `
-    <h2>Pokemon Name: ${data.pokemon[position].name}</h2>
+    <h2>${data.pokemon[position].name}</h2>
     <p class="image-popup-card"><img src="${data.pokemon[position].img}" 
     alt="${data.pokemon[position].name}"></p>
     <ul>

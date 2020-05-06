@@ -12,7 +12,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    background-color: rgb(37, 196, 37);
+    background-color: #F2EDA0;
     margin: 0px;
 }
 
@@ -23,8 +23,14 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: blue; 
-    height: 200px;   
+    background-color: #79C4F2; 
+    height: 200px; 
+    box-shadow: 0px 3px 5px grey;
+    padding: 0px 20px;
+}
+
+.styling-header {
+    box-shadow: none;
 }
 
 .title-pokedex {
@@ -32,6 +38,10 @@ header {
     color: yellow;
     font-size: 60px;
     cursor: pointer;
+    text-shadow: 4px 0px 0px blue, 
+        5px 0px 1px blue, 
+        -1px 1px 0px blue, 
+        1px -2px 0px blue;
 }
 
 .menu-search {
@@ -44,7 +54,6 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: white;
-    height: 35px;
     border: none;
     border-radius: 10px;
     width: 50%;
@@ -60,6 +69,7 @@ header {
     width: 90%;
     margin-left: 10px;
     margin-top: 2px;
+    outline: none;
 }
 
 .search-button {
@@ -79,22 +89,23 @@ header {
     justify-content: space-around;
     border-radius: 10px;
     border: none;
-    box-shadow: 1px 3px 5px black;
     height: 35px;
-    width: 10%;
-    background-color: rgb(32, 32, 204);
+    width: 70px;
+    background-color: white;
     cursor: pointer;
     margin-left: 5px;
+    margin-right: 40px;
+    outline: none;
 }
 
 .filter-button:hover {
-    background-color: lightblue;
+    background-color: whitesmoke;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: blue;
+    background-color: #79C4F2;
     visibility: hidden;
     height: 0px;
     position: fixed;
@@ -105,17 +116,18 @@ nav {
     visibility: visible;
     height: auto;
     margin-top: 200px;
+    box-shadow: 0px 3px 5px grey;
 }
 
 .select-box {
     display: flex;
     align-items: baseline;
-    background-color: blue;
+    background-color: #79C4F2;
     border-radius: 10px;
 }
 
 .select-label {
-    background-color: blue;
+    background-color: #79C4F2;
     border: none;
     font-family: Helvetica;
     font-size: 20px;
@@ -123,12 +135,13 @@ nav {
 }
 
 select {
-    background-color: rgb(32, 32, 204);
-    border: none;
+    background-color: #79C4F2;
+    border: 1px solid #f2e750;
     font-family: Helvetica;
     font-size: 20px;
     height: 40px;
     border-radius: 10px;
+    outline: none;
 }
 
 select:hover {
@@ -138,24 +151,26 @@ select:hover {
 main {
     display: flex;
     flex-direction: column;
-    margin-top: 200px;
+    margin-top: 220px;
     margin-left: 0px;
     margin-right: 0px;
+    padding: 0px 20px;
 }
 
 .main-html {
-    margin-top: 250px;
+    margin-top: 270px;
 }
 
 h1 {
     text-align: center;
     font-family: Helvetica;
     font-size: 25px;
+    margin: 0px;
 }
 
 .pokemon-card {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin: 10px 0px;   
 }
@@ -166,15 +181,21 @@ h1 {
     margin: 5px;
     border-radius: 10px;
     width: 30%;
-    background-color: red;
+    background-color: white;
+    box-shadow: 3px 3px 5px grey;
     cursor: pointer;
 }
 
 .image-pokemon {
+    align-self: center;
     background-color: white;
     border-radius: 5px;
     margin: 2px;
     width: 40%;
+}
+
+.image-size {
+    width: 100%;
 }
 
 .description {
@@ -184,6 +205,11 @@ h1 {
     margin: 2px;
     padding: 5px;
     font-family: Helvetica;
+}
+
+.pokemon-name {
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .popup-brackground {
@@ -213,7 +239,7 @@ h1 {
     justify-content: space-around;
     top: calc(50% - 250px);
     left: calc(50% - 150px);
-    background-color: red;
+    background-color: white;
     width: 300px;
     height: 500px;
     z-index: 3;
@@ -258,7 +284,7 @@ h2 {
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    background-color: black;
+    background-color: red;
     color: white;
     cursor: pointer;
     border: none;
@@ -267,18 +293,14 @@ h2 {
 }
 
 .button-popup-esc:hover {
-    background-color: gray;
+    background-color: rgb(192, 101, 101);
 }
 
 .div-scroll-up {
     position: fixed;
-    align-self: flex-end;
-    margin-top: 450px;
+    top: 90%;
+    left: 92%;
     z-index: 1;
-}
-
-.scroll-adjust {
-    margin-top: 400px;
 }
 
 .button-scroll-up {
@@ -286,7 +308,6 @@ h2 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
     border: none;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -303,9 +324,14 @@ h2 {
 
 @media only screen and (max-width: 800px) {
 
+    html {
+        touch-action: auto;
+    }
+
     header {
         flex-direction: column;
         text-align: center;
+        padding: 0px;
     }
 
     .title-pokedex {
@@ -316,6 +342,12 @@ h2 {
     .menu-search {
         justify-content: space-around;
         width: 90%;
+        padding: 0px;
+    }
+
+    .menu-exhibit {
+        margin-top: 200px;
+        padding: 0px 20px;
     }
 
     .search-label {
@@ -331,7 +363,9 @@ h2 {
     }
 
     .filter-button {
-        width: 15%;
+        width: 60px;
+        height: 40px;
+        margin-right: 0px;
     }
 
     nav {
@@ -341,8 +375,7 @@ h2 {
     select {
         flex-direction: column;
         text-align: left;
-        background-color: rgb(32, 32, 204);
-        width: 60%;
+        width: 50%;
     }
 
     .select-box {
@@ -354,7 +387,7 @@ h2 {
     }
 
     .main-html {
-        margin-top: 325px;
+        margin-top: 340px;
     }
 
     h1 {
@@ -364,7 +397,6 @@ h2 {
     .pokemon-card {
         flex-direction: column;
         align-content: center;
-        touch-action: auto;
     }
 
     .information-card {
@@ -372,18 +404,15 @@ h2 {
     }
 
     .popup-card {
-        background-color: rgba(250, 4, 4, 0.8);
-        top: calc(50% - 310px);
+        top: calc(50% - 300px);
         left: calc(50% - 150px);
         width: 280px;
-        height: 600px;
+        height: 550px;
     }
 
     .div-scroll-up {
-        margin-top: 400px;
+        top: 85%;
+        left: 80%;
     }
 
-    .scroll-adjust {
-        margin-top: 280px;
-    }
 }

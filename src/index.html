@@ -10,11 +10,11 @@
 </head>
 
 <body>
-  <header>
-    <p class="title-pokedex" id="pokedex-title">PokedexGo!</p>
+  <header id="styling-header">
+    <p class="title-pokedex" id="pokedex-title">PokédexGo!</p>
     <div class="menu-search">
       <label class="search-label" for="search-field">
-        <input placeholder="search for pokemon name..." class="search-field" type="text" id="search-field">
+        <input placeholder="search for pokémon name..." class="search-field" type="text" id="search-field">
         <button id="search-button" class="search-button">
           <i class="material-icons">search</i>
         </button>
@@ -26,9 +26,9 @@
   </header>
   <nav id="menu-field">
     <div class="select-box">
-      <label class="select-label" for="type">Pokemon Type:</label>
+      <label class="select-label" for="type">Pokémon Type:</label>
       <select id="type">
-        <option value=""></option>
+        <option value="">Choose:</option>
         <option value="Grass">Grass</option>
         <option value="Fire">Fire</option>
         <option value="Water">Water</option>
@@ -39,20 +39,17 @@
         <option value="Bug">Bug</option>
         <option value="Fighting">Fighting</option>
         <option value="Flying">Flying</option>
-        <option value="Fairy">Fairy</option>
         <option value="Psychic">Psychic</option>
         <option value="Ground">Ground</option>
         <option value="Rock">Rock</option>
         <option value="Ghost">Ghost</option>
-        <option value="Dark">Dark</option>
-        <option value="Steel">Steel</option>
         <option value="Dragon">Dragon</option>
       </select>
     </div>
     <div class="select-box">
-      <label class="select-label" for="eggs">Pokemon Egg:</label>
+      <label class="select-label" for="eggs">Pokémon Egg:</label>
       <select id="eggs">
-        <option value=""></option>
+        <option value="">Choose:</option>
         <option value="2 km">2km</option>
         <option value="5 km">5km</option>
         <option value="10 km">10km</option>
@@ -62,19 +59,20 @@
     <div class="select-box">
       <label class="select-label" for="order">Order by:</label>
       <select id="order">
-        <option value="id">Numeric</option>
-        <option value="id_reverse">Numeric Decrease</option>
-        <option value="spawn_chance">More spawn</option>
-        <option value="spawn_chance_reverse">Less spawn</option>
-        <option value="spawn_time">More spawn time</option>
-        <option value="spawn_time_reverse">Less spawn time</option>
+        <option value="">Choose:</option>
+        <option value="id">Numeric Increasing</option>
+        <option value="id_reverse">Numeric Decreasing</option>
+        <option value="spawn_chance">More Spawn Chance</option>
+        <option value="spawn_chance_reverse">Less Spawn Chance</option>
+        <option value="spawn_time">More Spawn Time</option>
+        <option value="spawn_time_reverse">Less Spawn Time</option>
         <option value="a_z">A-Z</option>
         <option value="a_z_reverse">Z-A</option>
       </select>
     </div>
   </nav>
   <main id="main-html">
-    <h1>All Pokemons</h1>
+    <h1>Pokémons</h1>
     <section id="pokemon-card" class="pokemon-card"></section>
     <div id="popup-brackground" class="popup-brackground"></div>
     <div id="popup-card" class="popup-card">
@@ -88,7 +86,7 @@
       </button>
     </div>
   </main>
-  <footer class="creatby">Desenvolvido por: Nomes</footer>
+  <footer class="creatby">Desenvolvido por: Carol Pinheiro e Jéssica Melise</footer>
   <script src="main.js" type="module"></script>
 </body>
 

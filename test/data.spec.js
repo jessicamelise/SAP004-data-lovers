@@ -33,7 +33,6 @@ describe('rules', () => {
     it('It returns the right search', () => {
       expect(rules.searchPokemons(dataPokemon, "Venusaur")).toEqual([Venusaur]);
     })
-
   });
 
   describe('orderBy', () => {
