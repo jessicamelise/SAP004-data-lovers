@@ -1,4 +1,4 @@
-import data from './data/pokemon/pokemon.js';
+import { pokemonJson} from './main.js';
 
 export const elements = {
     pokemonCard: document.getElementById("pokemon-card"),
@@ -47,18 +47,18 @@ function informationPopUp(position) {
     let newDivPopUp = document.createElement("div");
     newDivPopUp.classList.add("inside-popup");
     newDivPopUp.innerHTML = `
-    <h2>${data.pokemon[position].name}</h2>
-    <p class="image-popup-card"><img src="${data.pokemon[position].img}" 
-    alt="${data.pokemon[position].name}"></p>
+    <h2>${pokemonJson[position].name}</h2>
+    <p class="image-popup-card"><img src="${pokemonJson[position].img}" 
+    alt="${pokemonJson[position].name}"></p>
     <ul>
-        <li>Height: ${data.pokemon[position].height}</li>
-        <li>Weight: ${data.pokemon[position].weight}</li>
-        <li>Type: ${data.pokemon[position].type.join(', ')}</li>
-        <li>Candy: ${data.pokemon[position].candy}</li>
-        <li>Egg: ${data.pokemon[position].egg}</li>
-        <li>Spawn Chance: ${data.pokemon[position].spawn_chance}</li>
-        <li>Spawn Time: ${data.pokemon[position].spawn_time}</li>
-        <li>Weaknesses: ${data.pokemon[position].weaknesses.join(', ')}</li>
+        <li>Height: ${pokemonJson[position].height}</li>
+        <li>Weight: ${pokemonJson[position].weight}</li>
+        <li>Type: ${pokemonJson[position].type.join(', ')}</li>
+        <li>Candy: ${pokemonJson[position].candy}</li>
+        <li>Egg: ${pokemonJson[position].egg}</li>
+        <li>Spawn Chance: ${pokemonJson[position].spawn_chance}</li>
+        <li>Spawn Time: ${pokemonJson[position].spawn_time}</li>
+        <li>Weaknesses: ${pokemonJson[position].weaknesses.join(', ')}</li>
     </ul> 
     `;
     elements.descriptionPopUp.appendChild(newDivPopUp);
