@@ -12,7 +12,7 @@ elements.pokedexTitle.addEventListener("click", function click(){
 //verificar com Palomita a necessidade de passar essa função para o Data
 // Se for necessário como faríamos o teste dela, ou se criamos um arquivo só para ele
 //ou se deixamos aqui no main mesmo
-let pokemonJson = "";
+export let pokemonJson = "";
 
 const loadApiPokemonAsync = async () => {
   const pokemonAPI = await fetch("./data/pokemon/pokemon.json")
