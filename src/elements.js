@@ -1,4 +1,4 @@
-import { pokemonJson} from './main.js';
+import {loadApiPokemonAsync} from "./pokemonapi.js"
 
 export const elements = {
     pokemonCard: document.getElementById("pokemon-card"),
@@ -42,7 +42,8 @@ export function creatNewDiv(item) {
     return newDiv;
 }
 
-function informationPopUp(position) {
+async function informationPopUp(position) {
+    let pokemonJson = await loadApiPokemonAsync();
     elements.descriptionPopUp.innerHTML = "";
     let newDivPopUp = document.createElement("div");
     newDivPopUp.classList.add("inside-popup");

@@ -1,5 +1,6 @@
 import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
+import {loadApiPokemonAsync} from "./pokemonapi.js"
 
 elements.pokedexTitle.addEventListener("click", function click(){
     elements.pokemonType.value = "";
@@ -12,14 +13,7 @@ elements.pokedexTitle.addEventListener("click", function click(){
 //verificar com Palomita a necessidade de passar essa função para o Data
 // Se for necessário como faríamos o teste dela, ou se criamos um arquivo só para ele
 //ou se deixamos aqui no main mesmo
-export let pokemonJson = "";
 
-const loadApiPokemonAsync = async () => {
-  const pokemonAPI = await fetch("./data/pokemon/pokemon.json")
-  const response = await pokemonAPI.json();
-  pokemonJson = response.pokemon;
-  showFilterCards()
-}
 
 function menuExhibit() {
   elements.menuField.classList.toggle("menu-exhibit");
@@ -56,7 +50,9 @@ elements.pokemonOrder.addEventListener('change', showFilterCards);
 
 elements.searchButton.addEventListener("click", showFilterCards);
 
-function showFilterCards() {
+async function showFilterCards  () {
+let data = await loadApiPokemonAsync();
+
   let conditions = {
     type: elements.pokemonType.value,
     egg: elements.pokemonEgg.value,
@@ -89,7 +85,7 @@ function showFilterCards() {
     conditions.isDesc = true;
   }
 
-  let pokemons = getFilterPokemon(conditions, pokemonJson);
+  let pokemons = getFilterPokemon(conditions, data);
   elements.pokemonCard.innerHTML = ""
   for (let list of pokemons) {
     let eachCard = creatNewDiv(list);
@@ -97,4 +93,4 @@ function showFilterCards() {
   }
 }
 
-loadApiPokemonAsync();
+showFilterCards();
