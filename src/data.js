@@ -3,7 +3,6 @@ export const throwNewError = (condition, data) => {
     throw new TypeError();
 }
 
-
 export const rules = {
   filterType: (list, filterValue) => {
     return list.filter(item => !filterValue || item.type.includes(filterValue));

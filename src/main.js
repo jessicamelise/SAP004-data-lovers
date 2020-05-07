@@ -1,14 +1,25 @@
 import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
-import data from './data/pokemon/pokemon.js';
 
 elements.pokedexTitle.addEventListener("click", function click(){
     elements.pokemonType.value = "";
     elements.pokemonEgg.value = "";
-    elements.pokemonOrder.value = ""
-    elements.searchField.value = ""
+    elements.pokemonOrder.value = "";
+    elements.searchField.value = "";
   showFilterCards();
 });
+
+//verificar com Palomita a necessidade de passar essa função para o Data
+// Se for necessário como faríamos o teste dela, ou se criamos um arquivo só para ele
+//ou se deixamos aqui no main mesmo
+let pokemonJson = "";
+
+const loadApiPokemonAsync = async () => {
+  const pokemonAPI = await fetch("./data/pokemon/pokemon.json")
+  const response = await pokemonAPI.json();
+  pokemonJson = response.pokemon;
+  showFilterCards()
+}
 
 function menuExhibit() {
   elements.menuField.classList.toggle("menu-exhibit");
@@ -78,7 +89,7 @@ function showFilterCards() {
     conditions.isDesc = true;
   }
 
-  let pokemons = getFilterPokemon(conditions, data.pokemon);
+  let pokemons = getFilterPokemon(conditions, pokemonJson);
   elements.pokemonCard.innerHTML = ""
   for (let list of pokemons) {
     let eachCard = creatNewDiv(list);
@@ -86,4 +97,4 @@ function showFilterCards() {
   }
 }
 
-showFilterCards();
+loadApiPokemonAsync();
