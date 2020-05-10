@@ -1,418 +1,446 @@
 @font-face {
-    font-family: "pokemon";
-    src: url(pokemon/Pokemon\ Solid.ttf);
+  font-family: "pokemon";
+  src: url(pokemon/Pokemon\ Solid.ttf);
 }
 
 html {
-    width: 100%;
-    height: 100%;
-    scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    background-color: #F2EDA0;
-    margin: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F2EDA0;
+  margin: 0px;
 }
 
 header {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #79C4F2; 
-    height: 200px; 
-    box-shadow: 0px 3px 5px grey;
-    padding: 0px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #79C4F2;
+  height: 200px;
+  box-shadow: 0px 3px 5px grey;
+  padding: 0px 20px;
 }
 
 .styling-header {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .title-pokedex {
-    font-family: "pokemon";
-    color: yellow;
-    font-size: 60px;
-    cursor: pointer;
-    text-shadow: 4px 0px 0px blue, 
-        5px 0px 1px blue, 
-        -1px 1px 0px blue, 
-        1px -2px 0px blue;
+  font-family: "pokemon";
+  color: yellow;
+  font-size: 60px;
+  cursor: pointer;
+  text-shadow: 4px 0px 0px blue, 5px 0px 1px blue, -1px 1px 0px blue, 1px -2px 0px blue;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica;
+  width: 70%;
+}
+
+.faq-grafic-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.link-area {
+  margin: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .menu-search {
-    display: flex;
-    justify-content: flex-end;
-    width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .search-label {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    border: none;
-    border-radius: 10px;
-    width: 50%;
-    font-family: Helvetica;
-    color: grey;
-    font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  width: 50%;
+  font-family: Helvetica;
+  color: grey;
+  font-size: 15px;
 }
 
 .search-field {
-    height: 30px;
-    border-radius: 10px;
-    border: none;
-    width: 90%;
-    margin-left: 10px;
-    margin-top: 2px;
-    outline: none;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  width: 90%;
+  margin-left: 10px;
+  margin-top: 2px;
+  outline: none;
 }
 
 .search-button {
-    border: none;
-    border-radius: 10px;
-    background-color: white;
-    width: 10%;
-    cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  width: 10%;
+  cursor: pointer;
 }
 
 .search-button:hover {
-    background-color:whitesmoke;
+  background-color: whitesmoke;
 }
 
 .filter-button {
-    display: flex;
-    justify-content: space-around;
-    border-radius: 10px;
-    border: none;
-    height: 35px;
-    width: 70px;
-    background-color: white;
-    cursor: pointer;
-    margin-left: 5px;
-    margin-right: 40px;
-    outline: none;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  border: none;
+  height: 35px;
+  width: 70px;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 40px;
+  outline: none;
 }
 
 .filter-button:hover {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #79C4F2;
-    visibility: hidden;
-    height: 0px;
-    position: fixed;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #79C4F2;
+  visibility: hidden;
+  height: 0px;
+  position: fixed;
+  width: 100%;
 }
 
 .menu-exhibit {
-    visibility: visible;
-    height: auto;
-    margin-top: 200px;
-    box-shadow: 0px 3px 5px grey;
+  visibility: visible;
+  height: auto;
+  margin-top: 200px;
+  box-shadow: 0px 3px 5px grey;
 }
 
 .select-box {
-    display: flex;
-    align-items: baseline;
-    background-color: #79C4F2;
-    border-radius: 10px;
+  display: flex;
+  align-items: baseline;
+  background-color: #79C4F2;
+  border-radius: 10px;
 }
 
 .select-label {
-    background-color: #79C4F2;
-    border: none;
-    font-family: Helvetica;
-    font-size: 20px;
-    height: 40px;
+  background-color: #79C4F2;
+  border: none;
+  font-family: Helvetica;
+  font-size: 20px;
+  height: 40px;
 }
 
 select {
-    background-color: #79C4F2;
-    border: 1px solid #f2e750;
-    font-family: Helvetica;
-    font-size: 20px;
-    height: 40px;
-    border-radius: 10px;
-    outline: none;
+  background-color: #79C4F2;
+  border: 1px solid #f2e750;
+  font-family: Helvetica;
+  font-size: 20px;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
 }
 
 select:hover {
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    margin-top: 220px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 220px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px 20px;
 }
 
 .main-html {
-    margin-top: 270px;
+  margin-top: 270px;
 }
 
 h1 {
-    text-align: center;
-    font-family: Helvetica;
-    font-size: 25px;
-    margin: 0px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 25px;
+  margin: 0px;
 }
 
 .pokemon-card {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 10px 0px;   
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 10px 0px;
 }
 
 .information-card {
-    display: flex;
-    justify-content: space-around;
-    margin: 5px;
-    border-radius: 10px;
-    width: 30%;
-    background-color: white;
-    box-shadow: 3px 3px 5px grey;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+  border-radius: 10px;
+  width: 30%;
+  background-color: white;
+  box-shadow: 3px 3px 5px grey;
+  cursor: pointer;
 }
 
 .image-pokemon {
-    align-self: center;
-    background-color: white;
-    border-radius: 5px;
-    margin: 2px;
-    width: 40%;
+  align-self: center;
+  background-color: white;
+  border-radius: 5px;
+  margin: 2px;
+  width: 40%;
 }
 
 .image-size {
-    width: 100%;
+  width: 100%;
 }
 
 .description {
-    background-color: white;
-    border-radius: 5px;
-    width: 50%;
-    margin: 2px;
-    padding: 5px;
-    font-family: Helvetica;
+  background-color: white;
+  border-radius: 5px;
+  width: 50%;
+  margin: 2px;
+  padding: 5px;
+  font-family: Helvetica;
 }
 
 .pokemon-name {
-    font-weight: bold;
-    font-size: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .popup-brackground {
-    position: fixed;
-    visibility: hidden;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 2;
-    background-color: rgba(255,255,255,0.8);
-    transition: all 1s;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 1s;
 }
 
 .popup-brackground.popup-brackground-exhibit {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 .popup-card {
-    visibility: hidden;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    top: calc(50% - 250px);
-    left: calc(50% - 150px);
-    background-color: white;
-    width: 300px;
-    height: 500px;
-    z-index: 3;
-    box-shadow: 3px 3px 20px grey;
-    transform: translate(10px);
-    opacity: 0;
-    transition: all 1s;
-    padding: 10px;
-    border-radius: 10px;
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  top: calc(50% - 250px);
+  left: calc(50% - 150px);
+  background-color: white;
+  width: 300px;
+  height: 500px;
+  z-index: 3;
+  box-shadow: 3px 3px 20px grey;
+  transform: translate(10px);
+  opacity: 0;
+  transition: all 1s;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .popup-card.popup-card-exhibit {
-    visibility: visible;
-    opacity: 1;
-    transform: translate(0px);
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0px);
 }
 
 .description-popup {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .inside-popup {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    font-family: Helvetica;
-    font-size: 15px;
-    background-color: white;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  font-family: Helvetica;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .image-popup-card {
-    text-align: center;
+  text-align: center;
 }
 
 .button-popup-esc {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    border: none;
-    box-shadow: 2px 2px 10px black;
-    font-size: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 10px black;
+  font-size: 20px;
 }
 
 .button-popup-esc:hover {
-    background-color: rgb(192, 101, 101);
+  background-color: rgb(192, 101, 101);
 }
 
 .div-scroll-up {
-    position: fixed;
-    top: 90%;
-    left: 92%;
-    z-index: 1;
+  position: fixed;
+  top: 90%;
+  left: 92%;
+  z-index: 1;
 }
 
 .button-scroll-up {
-    display: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
 .button-scroll-up:hover {
-    background-color: gray;
+  background-color: gray;
 }
 
 .creatby {
-    text-align: center;
-    font-family: Helvetica;
+  text-align: center;
+  font-family: Helvetica;
 }
 
 @media only screen and (max-width: 800px) {
+  html {
+    touch-action: auto;
+  }
 
-    html {
-        touch-action: auto;
-    }
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 0px;
+  }
 
-    header {
-        flex-direction: column;
-        text-align: center;
-        padding: 0px;
-    }
+  .title-pokedex {
+    font-size: 40px;
+    margin: 0px;
+  }
 
-    .title-pokedex {
-        font-size: 40px;
-        margin: 0px;
-    }
+  .menu {
+    width: 90%;
+    margin-bottom: 20px;
+    align-items: center;
+  }
 
-    .menu-search {
-        justify-content: space-around;
-        width: 90%;
-        padding: 0px;
-    }
+  .faq-grafic-area {
+    margin: 0px;
+  }
 
-    .menu-exhibit {
-        margin-top: 200px;
-        padding: 0px 20px;
-    }
+  .menu-search {
+    justify-content: space-around;
+    padding: 0px;
+  }
 
-    .search-label {
-        width: 80%;
-    }
+  .menu-exhibit {
+    margin-top: 200px;
+    padding: 0px 20px;
+  }
 
-    .search-field {
-        width: 70%;
-    }
+  .search-label {
+    width: 80%;
+  }
 
-    .search-button {
-        width: 20%;
-    }
+  .search-field {
+    width: 70%;
+  }
 
-    .filter-button {
-        width: 60px;
-        height: 40px;
-        margin-right: 0px;
-    }
+  .search-button {
+    width: 20%;
+  }
 
-    nav {
-        flex-direction: column;
-    }
+  .filter-button {
+    width: 60px;
+    height: 40px;
+    margin-right: 0px;
+  }
 
-    select {
-        flex-direction: column;
-        text-align: left;
-        width: 50%;
-    }
+  nav {
+    flex-direction: column;
+  }
 
-    .select-box {
-        width: 100%
-    }
+  select {
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+  }
 
-    .select-label {
-        width: 40%;
-    }
+  .select-box {
+    width: 100%
+  }
 
-    .main-html {
-        margin-top: 340px;
-    }
+  .select-label {
+    width: 40%;
+  }
 
-    h1 {
-        font-size: 20px;
-    }
+  .main-html {
+    margin-top: 340px;
+  }
 
-    .pokemon-card {
-        flex-direction: column;
-        align-content: center;
-    }
+  h1 {
+    font-size: 20px;
+  }
 
-    .information-card {
-        width: 95%;
-    }
+  .pokemon-card {
+    flex-direction: column;
+    align-content: center;
+  }
 
-    .popup-card {
-        top: calc(50% - 300px);
-        left: calc(50% - 150px);
-        width: 280px;
-        height: 550px;
-    }
+  .information-card {
+    width: 95%;
+  }
 
-    .div-scroll-up {
-        top: 85%;
-        left: 80%;
-    }
-
+  .popup-card {
+    top: calc(50% - 300px);
+    left: calc(50% - 150px);
+    width: 280px;
+    height: 550px;
+  }
+  
+  .div-scroll-up {
+    top: 85%;
+    left: 80%;
+  }
 }
