@@ -1,12 +1,12 @@
 import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
-import data from './data/pokemon/pokemon.js';
+import {loadApiPokemonAsync} from "./pokemonapi.js"
 
 elements.pokedexTitle.addEventListener("click", function click(){
     elements.pokemonType.value = "";
     elements.pokemonEgg.value = "";
-    elements.pokemonOrder.value = ""
-    elements.searchField.value = ""
+    elements.pokemonOrder.value = "";
+    elements.searchField.value = "";
   showFilterCards();
 });
 
@@ -45,7 +45,9 @@ elements.pokemonOrder.addEventListener('change', showFilterCards);
 
 elements.searchButton.addEventListener("click", showFilterCards);
 
-function showFilterCards() {
+async function showFilterCards  () {
+let data = await loadApiPokemonAsync();
+
   let conditions = {
     type: elements.pokemonType.value,
     egg: elements.pokemonEgg.value,
@@ -78,7 +80,7 @@ function showFilterCards() {
     conditions.isDesc = true;
   }
 
-  let pokemons = getFilterPokemon(conditions, data.pokemon);
+  let pokemons = getFilterPokemon(conditions, data);
   elements.pokemonCard.innerHTML = ""
   for (let list of pokemons) {
     let eachCard = creatNewDiv(list);
