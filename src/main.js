@@ -10,11 +10,6 @@ elements.pokedexTitle.addEventListener("click", function click(){
   showFilterCards();
 });
 
-//verificar com Palomita a necessidade de passar essa função para o Data
-// Se for necessário como faríamos o teste dela, ou se criamos um arquivo só para ele
-//ou se deixamos aqui no main mesmo
-
-
 function menuExhibit() {
   elements.menuField.classList.toggle("menu-exhibit");
   elements.mainHtml.classList.toggle("main-html");
