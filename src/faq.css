@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "pokemon";
+  src: url(pokemon/Pokemon\ Solid.ttf);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #F2EDA0;
+  margin: 0px;
+  font-family: Helvetica;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #79C4F2;
+  height: 120px;
+  box-shadow: 0px 3px 5px grey;
+  padding: 0px 20px;
+}
+
+.title-pokedex {
+  font-family: "pokemon";
+  color: yellow;
+  font-size: 60px;
+  text-shadow: 4px 0px 0px blue, 5px 0px 1px blue, -1px 1px 0px blue, 1px -2px 0px blue;
+}
+
+h1 {
+  text-align: center;
+}
+
+.faq {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255, 0.6);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.link-return {
+  width: 50px;
+  height: 30px;
+  color: inherit;
+}
+
+.return {
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background-color: #79C4F2;
+  cursor: pointer;
+  text-align: center;
+}
+
+.return:hover {
+  background-color: lightblue;
+}
+
+.creatby {
+  text-align: center;
+  margin-top: 10px;
+  height: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+  html {
+    touch-action: auto;
+  }
+
+  .faq {
+    font-size: 20px;
+  }
+  
+  .return {
+    padding: 4px;
+    width: 60px;
+  }
+}

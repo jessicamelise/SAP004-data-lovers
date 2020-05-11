@@ -6,22 +6,28 @@
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body id="body-html">
   <header id="styling-header">
-    <p class="title-pokedex" id="pokedex-title">PokédexGo!</p>
-    <div class="menu-search">
-      <label class="search-label" for="search-field">
-        <input placeholder="search for pokémon name..." class="search-field" type="text" id="search-field">
-        <button id="search-button" class="search-button">
-          <i class="material-icons">search</i>
+    <p class="title-pokedex" id="pokedex-title">PokédexGO!</p>
+    <div class="menu">
+      <div class="faq-grafic-area">
+        <p class="link-area"><a href="faq.html">FAQ</a></p>
+        <p class="link-area"><a href="graphic.html">Graphics</a></p>
+      </div>
+      <div class="menu-search" id="menu-search">
+        <label class="search-label" for="search-field">
+          <input placeholder="search for pokémon name..." class="search-field" type="text" id="search-field">
+          <button id="search-button" class="search-button">
+            <i class="material-icons">search</i>
+          </button>
+        </label>
+        <button class="filter-button" id="menu-click">
+          <i class="material-icons">filter_list</i>
         </button>
-      </label>
-      <button class="filter-button" id="menu-click">
-        <i class="material-icons">filter_list</i>
-      </button>
+      </div>
     </div>
   </header>
   <nav id="menu-field">
@@ -86,7 +92,7 @@
       </button>
     </div>
   </main>
-  <footer class="creatby">Desenvolvido por: Carol Pinheiro e Jéssica Melise</footer>
+  <footer class="creatby">Developed by: Carol Pinheiro and Jéssica Melise</footer>
   <script src="main.js" type="module"></script>
 </body>
 
