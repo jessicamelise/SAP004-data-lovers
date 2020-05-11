@@ -38,6 +38,34 @@ export const rules = {
       newList.reverse();
     }
     return newList;
+  },
+
+  computeStatsType: (data) => {
+    let takeType = data.map((item) => {return item.type});
+    let putTogetherAllArrays = takeType.flat();
+    let countTypes = putTogetherAllArrays.reduce(function (allTypes, atualType) {
+        if (atualType in allTypes) {
+            allTypes[atualType]++;
+        } else {
+            allTypes[atualType] = 1;
+        }
+        return allTypes;
+    }, {})
+    return countTypes;
+  },
+
+  computeStatsEgg: (data) => {
+    let takeEgg = data.map((item) => {return item.egg});
+    let putTogetherAllArrays = takeEgg.flat();
+    let countEggs = putTogetherAllArrays.reduce(function (allEggs, atualEgg) {
+      if (atualEgg in allEggs) {
+        allEggs[atualEgg]++;
+      } else {
+        allEggs[atualEgg] = 1;
+      }
+      return allEggs;
+    }, {})
+    return countEggs;
   }
 }
 
@@ -55,23 +83,4 @@ export const getFilterPokemon = (condition, data) => {
   pokemons = rules.searchPokemons(pokemons, condition.search);
   pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
   return pokemons;
-}
-
-export function computeStatsType(data) {
-  let takeType = data.map(function (item) {
-      return item.type;
-  })
-
-  let putTogetherAllArrays = takeType.flat();
-
-  let countTypes = putTogetherAllArrays.reduce(function (allTypes, atualType) {
-      if (atualType in allTypes) {
-          allTypes[atualType]++;
-      } else {
-          allTypes[atualType] = 1;
-      }
-      return allTypes;
-  }, {})
-
-  return countTypes;
 }
