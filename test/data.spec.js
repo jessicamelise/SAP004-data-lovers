@@ -60,6 +60,7 @@ describe('rules', () => {
       );
     })
   });
+
 })
 
 describe('Get Filter Pokémon', () => {
@@ -75,5 +76,23 @@ describe('throwNewError', () => {
 
   it('It should throw a new error when did not receive the right parameters', () => {
     expect(() => throwNewError()).toThrow(TypeError);
-  })
+  });
+
+  describe('computeStatsType', () => {
+    it('is a function', () => {
+      expect(typeof rules.computeStatsType).toBe('function');
+    })
+    it('It returns the expected object', () => {
+      expect(rules.computeStatsType(dataPokemon)).toEqual({ Grass: 3, Poison: 3, Fire: 1, Normal: 1 });
+    })
+  });
+  
+  describe('computeStatsEgg', () => {
+    it('is a function', () => {
+      expect(typeof rules.computeStatsEgg).toBe('function');
+    })
+    it('It returns the quantity', () => {
+      expect(rules.computeStatsEgg(dataPokemon)).toEqual({ '2 km': 2, 'Not in Eggs': 3 });
+    })
+  });
 })
