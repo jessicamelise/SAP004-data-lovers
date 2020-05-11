@@ -1,6 +1,8 @@
 import { loadApiPokemonAsync } from "./pokemonapi.js"
 
 export const elements = {
+  graphicType: document.getElementById('graphic-type').getContext('2d'),
+  graphicEggs: document.getElementById('graphic-egg').getContext('2d'),
   pokemonCard: document.getElementById("pokemon-card"),
   mainHtml: document.getElementById("main-html"),
   divButtonScrollUp: document.getElementById("div-scroll-up"),
