@@ -57,3 +57,21 @@ export const getFilterPokemon = (condition, data) => {
   return pokemons;
 }
 
+export function computeStatsType(data) {
+  let takeType = data.map(function (item) {
+      return item.type;
+  })
+
+  let putTogetherAllArrays = takeType.flat();
+
+  let countTypes = putTogetherAllArrays.reduce(function (allTypes, atualType) {
+      if (atualType in allTypes) {
+          allTypes[atualType]++;
+      } else {
+          allTypes[atualType] = 1;
+      }
+      return allTypes;
+  }, {})
+
+  return countTypes;
+}
