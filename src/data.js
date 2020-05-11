@@ -56,3 +56,4 @@ export const getFilterPokemon = (condition, data) => {
   pokemons = rules.orderBy(pokemons, condition.sortBy, condition.isDesc);
   return pokemons;
 }
+
