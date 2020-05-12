@@ -44,6 +44,7 @@ elements.pokemonEgg.addEventListener('change', showFilterCards);
 elements.pokemonOrder.addEventListener('change', showFilterCards);
 
 elements.searchButton.addEventListener("click", showFilterCards);
+elements.searchField.addEventListener("keypress", event => {if (event.keyCode ===13) return showFilterCards()})
 
 async function showFilterCards  () {
 let data = await loadApiPokemonAsync();
