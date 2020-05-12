@@ -82,10 +82,8 @@ let data = await loadApiPokemonAsync();
 
   let pokemons = getFilterPokemon(conditions, data);
   elements.pokemonCard.innerHTML = ""
-  for (let list of pokemons) {
-    let eachCard = creatNewDiv(list);
-    elements.pokemonCard.appendChild(eachCard);
+  creatNewDiv(pokemons);
   }
-}
+
 
 showFilterCards();
