@@ -2,7 +2,7 @@ import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
 import {loadApiPokemonAsync} from "./pokemonapi.js"
 
-elements.pokedexTitle.addEventListener("click", function click(){
+elements.pokedexTitle.addEventListener("click", function (){
     elements.pokemonType.value = "";
     elements.pokemonEgg.value = "";
     elements.pokemonOrder.value = "";
