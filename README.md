@@ -44,58 +44,113 @@ Ou seja, a grande maioria dos nossos jogadores se centralizavam em pessoas que h
 Contudo, como os gráficos apontam, a divisão entre as outras faixas etárias era muito pequena para criarmos outro grupo de grande interesse. 
 Pensando nisso, decidimos pegar 3 histórias de usuários com cenários e idades diferentes, a fim de criar um projeto que pudesse atingir esses usuários que mesmo com histórias opostas ainda buscavam o mesmo resultado.
 A primeira história escolhida por nós, foi a do Gabriel:
-#Gabriel aqui
+![Protopersona 1 - Gabriel](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/Persona_1_-_Gabriel.png "Protopersona 1 - Gabriel")
 Uma criança, com contato intenso e direto com a tecnologia, que conheceu os pokémons através dos pais que gostavam muito do tópico, e começou a jogar por curiosidade.
 A principal necessidade dele no nosso projeto, seria unicamente algo prático, intuitivo e interativo, pois diferentemente de fãs mais antigos o foco principal dele seria encontrar o que procurava da forma mais fácil possível.
 
 Após isso, fomos em direção a segunda história:
-#Isabel aqui
+![Protopersona 2 - Isabel](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/Persona_2_-_Isabel.png "Protopersona 2 - Isabel")
 Considerando que o jogo não se limitava apenas a fãs, consideramos também a possibilidade de uma mãe querer entender o jogo, antes de permitir que o filho jogasse.  Tendo a possibilidade também, de ela igualmente se interessasse pelo tema e começasse a jogar.
 Sendo assim, definimos como meta criar uma área de FAQ com uma explicação sobre o que eram os pokémons além de pequenas instruções para que pessoas que não conhecessem o tema, pudessem se localizar no site.
 
 E por último, a história final que criamos, foi diretamente em relação a um jogador experiente:
-#Ana aqui
+![Protopersona 3 - Ana](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/Persona_3_-_Ana.png "Protopersona 3 - Ana")
 Diferentemente dos dois anteriores, o foco dela não estaria completamente na experiência com a interface, mas sim nas informações que conseguisse obter dentro do site. 
-Sendo assim, focamos em criar cards com todas as informações necessárias para uma boa jogatina e acima de tudo, permitir que o filtro fosse realizado com base em fatores importantes como chance de Spawn, tempo de Spawn e etc.
+Sendo assim, focamos em criar cards com todas as informações necessárias para uma boa jogatina e acima de tudo, permitir que o filtro fosse realizado com base em fatores importantes como chance de Spawn, tempo de Spawn, etc.
 
 ## 4. Desenvolvimento
 
+Na questão do desenvolvimento, decidimos objetivamente separar ele em grupos de tarefas diferentes e dentro das mesmas separar em pequenas tarefas.
   
 
 ### 4.1 Interface
 
-- Rascunho inicial em papel
-#adicionar aqui
+#### Rascunho inicial em papel
+![Primeiro rascunho feito em papel](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/layout-papel.jpg "Primeiro rascunho feito em papel")
 
-- Protótipo de baixa fidelidade
+#### Protótipo de baixa fidelidade
+- Protótipo para celular de baixa fidelidade
+![Protótipo de baixa fidelidade para o celular com descrição](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/layout%20cel%20com%20descri%C3%A7%C3%A3o.png  "Protótipo de baixa fidelidade para o celular com descrição")
 
-![alt text](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/layout%20cel%20com%20descri%C3%A7%C3%A3o.png  "Protótipo de baixa fidelidade para o celular com descrição")
+  
+- Protótipo de baixa fidelidade para o desktop
+![Protótipo de baixa fidelidade para o desktop com descrição- tela principal](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/layout%20desktop%20com%20descri%C3%A7%C3%A3o1.png  "Protótipo de baixa fidelidade para o desktop com descrição- tela principal")
+
+  
+- Protótipo de baixa fidelidade para o desktop com foco nos filtros
+![Protótipo de baixa fidelidade para o desktop com descrição - filtros](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/layout%20desktop%20com%20descri%C3%A7%C3%A3o2.png  "Protótipo de baixa fidelidade para o desktop com descrição - filtros")
+
+  
+####  MVP (Mínimo Produto Viável) - 1° versão
+- Tela principal
+![Primeiro MVP - Tela Principal](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/firstmvp.png  "Primeiro MVP - Tela Principal")
+
+  
+- Filtros
+![Primeiro MVP - Tela com filtros](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/firstmvp_filters.png  "Primeiro MVP - Tela com filtros")
+
+
+#### MVP (Mínimo Produto Viável) - 2° versão
+- Tela principal
+![Segundo MVP - Tela Principal](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/secondmvp.png "Segundo MVP - Tela Principal")
+
+- Filtros
+- ![Segundo MVP - Filtros](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/secondmvp_filters.png "Segundo MVP - Filtros")
+
 
   
 
-![alt text](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/layout%20desktop%20com%20descri%C3%A7%C3%A3o1.png  "Protótipo de baixa fidelidade para o desktop com descrição- tela principal")
+### 4.2 Pesquisa sobre usabilidade
+
+#### Primeira pesquisa - realizada com 48 pessoas
+- Percentual de pessoas que ainda jogam 
+![Pessoas que ainda jogam](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/aindaJoga.png "Pessoas que ainda jogam")
+
+- Necessidade da plataforma para eles
+![Se eles consideram válido ter a plataforma](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/necessidade.png "Se eles consideram válido ter a plataforma")
+
+- Finalidade de uso
+![Para que utilizariam o site](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/finalidade.png "Para que utilizariam o site")
+
+- Filtros que consideravam necessários
+![Escolha dos filtros que julgavam necessários para a usabilidade](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/filtrosnecessidade.png "Escolha dos filtros que julgavam necessários para a usabilidade")
+
+
+
+
+
+#### Segunda pesquisa
+
+- Idade dos jogadores 
+![Idade dos jogadores](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/age.png "Idade dos jogadores")
+
+- Meio que usou para acessar o link 
+![Como acessou o link](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/ondeAcessa.png "Como acessou o link")
+
+- Opinião sobre o Layout do primeiro MVP 
+![Opiniões sobre o Layout do primeiro MVP](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/layoutopinion.png "Opiniões sobre o Layout do primeiro MVP")
+
+- Os filtros foram satisfatórios 
+![Opinião dos usuários se tiveram algum problema com os filtros](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/problemasComFiltros.png "Opinião dos usuários se tiveram algum problema com os filtros")
+
+- Opinião sobre os Pop-ups com informações extras
+![Gráfico com a opinião sobre o quão satisfatórios foram os Pop-ups e sua usabilidade](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/usabilidadePopUp.png "Gráfico com a opinião sobre o quão satisfatórios foram os Pop-ups e sua usabilidade")
+
+- Algumas opiniões deixadas pelos avaliadores que levamos em consideração para melhorias: 
+
+![Sobre a falta de um botão de retorno](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/botaoretorno.png "Sobre a falta de um botão de retorno")
+
+![Sobre a necessidade de uma área de gráficos e FAQ](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/faqgraphics.png "Sobre a necessidade de uma área de gráficos e FAQ")
+
+![Opinião em relação as cores que não estavam agradáveis aos olhos](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/opiniaoCores.png "Opinião em relação as cores que não estavam agradáveis aos olhos")
+
+![Necessidade de uma página de erro para quando a pessoa não digitar corretamente](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/opiniaoNaoTerPaginaDeErroNaPesquisa.png "Necessidade de uma página de erro para quando a pessoa não digitar corretamente")
+
+![Campo de pesquisa indicar o que  pode ser pesquisado](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/placeholderExplicarOquePesquisar.png "Campo de pesquisa indicar o que  pode ser pesquisado")
 
   
 
-![alt text](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/layout%20desktop%20com%20descri%C3%A7%C3%A3o2.png  "Protótipo de baixa fidelidade para o desktop com descrição - filtros")
-
-  
-
-- MVP (Mínimo Produto Viável) - 1° versão
-
-![alt text](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/firstmvp.png  "Primeiro MVP - Tela Principal")
-
-  
-
-![alt text](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Layout/firstmvp_filters.png  "Primeiro MVP - Tela com filtros")
-
-  
-
-- Pesquisa sobre usabilidade
-
-  
-
-### 4.2 Planejamento do site
+### 4.3 Planejamento do site
 
 #### Fase 1
 
@@ -134,10 +189,10 @@ Sendo assim, focamos em criar cards com todas as informações necessárias para
 - [x] Utilização do Fetch para buscar os dados do Pokémon.json
 
 #### Fase 5
-- [ ] Criar a página que vai receber os gráficos.
-- [ ] Escrever os testes para a função de cálculo, aplicando TDD.
-- [ ] Escrever a função em si.
-- [ ] Aplicar ela usando a biblioteca ***Chart.js***.
+- [x] Criar a página que vai receber os gráficos.
+- [x] Escrever os testes para a função de cálculo, aplicando TDD.
+- [x] Escrever a função em si.
+- [x] Aplicar ela usando a biblioteca ***Chart.js***.
 
 #### Fase 6
 - [ ] Aplicar as melhorias no CSS, considerando as opiniões recebidas via pesquisa.
@@ -166,11 +221,19 @@ Assim que a instalação tiver sido concluída, basta digitar em seu terminal:
 
     npm install 
 E aguardar até que o processo tenha sido completo.
+
+Para que a  biblioteca dos gráficos seja executada, é necessário digitar após o último processo:
+
+ 
+
+    npm install chart.js --save
+
 Para abrir um servidor a fim de executar o projeto, é só digitar:
 
     npm start
   E clicar no link que vai ser disponibilizado.
+
   
 
 ## Autores
-Projeto desenvolvido por @jessicamelise e @carolpinheiro, como segundo projeto no bootcamp da @Laboratoria.
+Projeto desenvolvido por [Jéssica Melise](https://github.com/jessicamelise) e [Caroline Pinheiro](https://github.com/CarolPinheiro/), como segundo projeto no bootcamp da [Laboratoria](https://github.com/laboratoria/).
