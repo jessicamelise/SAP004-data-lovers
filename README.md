@@ -83,11 +83,10 @@ Na questão do desenvolvimento, decidimos objetivamente separar ele em grupos de
   
 ####  MVP (Mínimo Produto Viável) - 1° versão
 - Tela principal
-
-
+![Primeiro MVP - Tela Principal](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/firstmvp.png "Primeiro MVP - Tela Principal")
   
 - Filtros
-
+![Primeiro MVP - Tela com filtros](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/firstmvp_filters.png "Primeiro MVP - Tela com filtros")
 
 
 #### MVP (Mínimo Produto Viável) - 2° versão
