@@ -118,7 +118,7 @@ Na questão do desenvolvimento, decidimos objetivamente separar ele em grupos de
 
 
 
-#### Segunda pesquisa
+#### Segunda pesquisa - realizada com 62 pessoas
 
 - Idade dos jogadores 
 ![Idade dos jogadores](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/age.png "Idade dos jogadores")
