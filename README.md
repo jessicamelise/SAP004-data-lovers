@@ -70,15 +70,15 @@ Na questão do desenvolvimento, decidimos objetivamente separar ele em grupos de
 
 #### Protótipo de baixa fidelidade
 - Protótipo para celular de baixa fidelidade
-
+![Protótipo de baixa fidelidade para o celular com descrição](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/layout%20cel%20com%20descri%C3%A7%C3%A3o.png "Protótipo de baixa fidelidade para o celular com descrição")
 
   
 - Protótipo de baixa fidelidade para o desktop
-
+![Protótipo de baixa fidelidade para o desktop com descrição- tela principal](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/layout%20desktop%20com%20descri%C3%A7%C3%A3o1.png "Protótipo de baixa fidelidade para o desktop com descrição- tela principal")
 
   
 - Protótipo de baixa fidelidade para o desktop com foco nos filtros
-![enter image description here](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/layout%20desktop%20com%20descri%C3%A7%C3%A3o2.png)
+![Protótipo de baixa fidelidade para o desktop com descrição - filtros](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/layout%20desktop%20com%20descri%C3%A7%C3%A3o2.png "Protótipo de baixa fidelidade para o desktop com descrição - filtros")
 
   
 ####  MVP (Mínimo Produto Viável) - 1° versão
