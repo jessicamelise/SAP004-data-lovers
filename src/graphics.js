@@ -50,7 +50,7 @@ takeValuesForGraphics()
 async function createGraphics(elements, labels, colors, dataset) {
   let loadApi = await getValuesApiAsync();
   let chart = new Chart(elements, {
-    type: 'pie',
+    type: 'doughnut',
 
     data: {
       labels: labels,
@@ -64,7 +64,7 @@ async function createGraphics(elements, labels, colors, dataset) {
     options: {
       legend: {
         display: true,
-        position: "bottom"
+        position: "top"
       },
       tooltips: {
         enabled: true,

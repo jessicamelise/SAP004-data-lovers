@@ -57,7 +57,7 @@ h1 {
   padding: 5px;
   max-width: 1200px;
   margin: 10px 0px;
-  height: 500px
+  height: 600px
 }
 
 .link-return {
@@ -76,7 +76,7 @@ h1 {
   cursor: pointer;
   text-align: center;
   position: relative;
-  bottom: -60px;
+  bottom: -120px;
 }
 
 .return:hover {
@@ -102,5 +102,6 @@ h1 {
   .return {
     padding: 4px;
     width: 60px;
+    bottom: -115px;
   }
 }
