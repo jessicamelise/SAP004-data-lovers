@@ -14,6 +14,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
+  justify-content:  space-around;
   align-items: center;
   min-height: calc(100vh - 160px);
 }
@@ -48,25 +49,15 @@ h1 {
 }
 
 .graphic-area {
-  width: 90%;
   display: flex;
   flex-direction: column;
+  width: 90%;
   background-color: rgb(255, 255, 255, 0.6);
   border-radius: 10px;
   padding: 5px;
   max-width: 1200px;
-}
-
-.graphic-div {
-  display: flex;
-  justify-content: space-around;
-}
-
-.graphic-image {
-  height: 300px;
-  width: 400px;
-  border: solid 1px;
-  border-radius: 10px;
+  margin: 10px 0px;
+  height: 500px
 }
 
 .link-return {
@@ -84,6 +75,8 @@ h1 {
   background-color: #79C4F2;
   cursor: pointer;
   text-align: center;
+  position: relative;
+  bottom: -60px;
 }
 
 .return:hover {
@@ -104,10 +97,6 @@ h1 {
   .graphic-area {
     font-size: 20px;
     padding: 10px;
-  }
-  
-  .graphic-div {
-    flex-direction: column;
   }
   
   .return {
