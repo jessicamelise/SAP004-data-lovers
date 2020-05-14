@@ -61,23 +61,6 @@ describe('rules', () => {
     })
   });
 
-})
-
-describe('Get Filter Pokémon', () => {
-  it('It returns the Charmander when we call the fire type', () => {
-    expect(getFilterPokemon({ type: "Fire" }, dataPokemon)).toEqual([Charmander]);
-  })
-})
-
-describe('throwNewError', () => {
-  it('is a function', () => {
-    expect(typeof throwNewError).toBe('function');
-  })
-
-  it('It should throw a new error when did not receive the right parameters', () => {
-    expect(() => throwNewError()).toThrow(TypeError);
-  });
-
   describe('computeStatsType', () => {
     it('is a function', () => {
       expect(typeof rules.computeStatsType).toBe('function');
@@ -94,5 +77,21 @@ describe('throwNewError', () => {
     it('It returns the quantity', () => {
       expect(rules.computeStatsEgg(dataPokemon)).toEqual({ '2 km': 2, 'Not in Eggs': 3 });
     })
+  });
+})
+
+describe('Get Filter Pokémon', () => {
+  it('It returns the Charmander when we call the fire type', () => {
+    expect(getFilterPokemon({ type: "Fire" }, dataPokemon)).toEqual([Charmander]);
+  })
+})
+
+describe('throwNewError', () => {
+  it('is a function', () => {
+    expect(typeof throwNewError).toBe('function');
+  })
+
+  it('It should throw a new error when did not receive the right parameters', () => {
+    expect(() => throwNewError()).toThrow(TypeError);
   });
 })
