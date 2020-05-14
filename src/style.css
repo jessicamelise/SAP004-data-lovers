@@ -29,6 +29,13 @@ header {
   padding: 0px 20px;
 }
 
+.max-width {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
 .styling-header {
   box-shadow: none;
 }
@@ -51,7 +58,6 @@ header {
 .faq-grafic-area {
   display: flex;
   justify-content: flex-end;
-  margin-right: 30px;
 }
 
 .link-area {
@@ -115,7 +121,6 @@ a {
   background-color: white;
   cursor: pointer;
   margin-left: 5px;
-  margin-right: 40px;
   outline: none;
 }
 
@@ -196,6 +201,8 @@ h1 {
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 10px 0px;
+  max-width: 1200px;
+  align-self: center;
 }
 
 .information-card {
@@ -350,99 +357,79 @@ h2 {
   html {
     touch-action: auto;
   }
-
   header {
     flex-direction: column;
     text-align: center;
     padding: 0px;
   }
-
   .title-pokedex {
     font-size: 40px;
     margin: 0px;
   }
-
   .menu {
     width: 90%;
     margin-bottom: 20px;
     align-items: center;
   }
-
   .faq-grafic-area {
     margin: 0px;
   }
-
   .menu-search {
     justify-content: space-around;
     padding: 0px;
   }
-
   .menu-exhibit {
     margin-top: 200px;
     padding: 0px 20px;
   }
-
   .search-label {
     width: 80%;
   }
-
   .search-field {
     width: 70%;
   }
-
   .search-button {
     width: 20%;
   }
-
   .filter-button {
     width: 60px;
     height: 40px;
     margin-right: 0px;
   }
-
   nav {
     flex-direction: column;
   }
-
   select {
     flex-direction: column;
     text-align: left;
     width: 50%;
   }
-
   .select-box {
     width: 100%
   }
-
   .select-label {
     width: 40%;
   }
-
   .main-html {
     margin-top: 340px;
     min-height: calc(100vh - 370px);
   }
-
   h1 {
     font-size: 20px;
   }
-
   .pokemon-card {
     flex-direction: column;
     align-content: center;
   }
-
   .information-card {
     width: 95%;
   }
-
   .popup-card {
     top: calc(50% - 300px);
     left: calc(50% - 150px);
     width: 280px;
     height: 550px;
   }
-  
   .div-scroll-up {
     top: 85%;
     left: 80%;

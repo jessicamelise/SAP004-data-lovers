@@ -1,11 +1,6 @@
 import { rules } from "./data.js"
 import { loadApiPokemonAsync } from "./pokemonapi.js"
 import { elements } from "./elements.js"
-// import { Chart } from "./packages/chart.js/Chart.bundle.js"
-// import {Chart} from './chart/chart.js/dist/Chart.js'
-// import Chart from './chart/chart.js/bundled'
-// import {Chart} from "./chart/chart.js/"
-// let Chart = require('chart.js')
 
 let colorsType = [
   'rgb(96, 185, 84)',
