@@ -37,11 +37,11 @@ elements.buttonScrollUp.addEventListener("click", topFunction);
 
 elements.buttonEscPopUp.addEventListener("click", escPopUp);
 
-elements.pokemonType.addEventListener('change', showFilterCards);
+elements.pokemonType.addEventListener("change", showFilterCards);
 
-elements.pokemonEgg.addEventListener('change', showFilterCards);
+elements.pokemonEgg.addEventListener("change", showFilterCards);
 
-elements.pokemonOrder.addEventListener('change', showFilterCards);
+elements.pokemonOrder.addEventListener("change", showFilterCards);
 
 elements.searchButton.addEventListener("click", showFilterCards);
 elements.searchField.addEventListener("keypress", event => {if (event.keyCode ===13) return showFilterCards()})
