@@ -1,11 +1,6 @@
 import { rules } from "./data.js"
 import { loadApiPokemonAsync } from "./pokemonapi.js"
 import { elements } from "./elements.js"
-// import { Chart } from "./packages/chart.js/Chart.bundle.js"
-// import {Chart} from './chart/chart.js/dist/Chart.js'
-// import Chart from './chart/chart.js/bundled'
-// import {Chart} from "./chart/chart.js/"
-// let Chart = require('chart.js')
 
 let colorsType = [
   'rgb(96, 185, 84)',
@@ -32,44 +27,59 @@ let colorsEgg = [
   'rgb(139, 119, 173)',
 ]
 
-async function takeValuesType() {
+async function getValuesApiAsync() {
   let result = await loadApiPokemonAsync();
-  let dataType = rules.computeStatsType(result);
+  return result;
+}
+
+async function takeValuesForGraphics() {
+  let loadApi = await getValuesApiAsync();
+  let dataType = rules.computeStatsType(loadApi);
   let takeObjectKeysType = Object.keys(dataType);
   let takeObjectValuesType = Object.values(dataType);
   createGraphics(elements.graphicType.getContext('2d'), takeObjectKeysType, colorsType, takeObjectValuesType)
 
-  let takeValuesEgg = rules.computeStatsEgg(result);
-  let takeObjectKeysEgg = Object.keys(takeValuesEgg);
-  let takeObjectValuesEgg = Object.values(takeValuesEgg);
+  let dataEgg = rules.computeStatsEgg(loadApi);
+  let takeObjectKeysEgg = Object.keys(dataEgg);
+  let takeObjectValuesEgg = Object.values(dataEgg);
   createGraphics(elements.graphicEggs.getContext('2d'), takeObjectKeysEgg, colorsEgg, takeObjectValuesEgg)
 }
 
-takeValuesType()
+takeValuesForGraphics()
 
-
-function createGraphics(elements, labels, colors, dataset) {
+async function createGraphics(elements, labels, colors, dataset) {
+  let loadApi = await getValuesApiAsync();
   let chart = new Chart(elements, {
-    type: 'bar',
+    type: 'doughnut',
 
     data: {
       labels: labels,
       datasets: [{
         label: 'Quantidade:',
         backgroundColor: colors,
-        borderColor: 'rgb(255, 99, 132)',
         data: dataset
       }]
     },
 
     options: {
       legend: {
-        display: false
+        display: true,
+        position: "top"
       },
       tooltips: {
         enabled: true,
-        mode: "nearest"
-      }
+        mode: "nearest",
+        callbacks: {
+          afterLabel: function (tooltipItem, data) {
+            let dataset = data['datasets'][0];
+            let percent = Math.round((dataset['data'][tooltipItem['index']] / loadApi.length) * 100)
+            return '(' + percent + '%)';
+          }
+        }
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+    
     }
   });
 
