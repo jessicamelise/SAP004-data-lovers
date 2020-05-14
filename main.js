@@ -2,7 +2,7 @@ import { sortByType, getFilterPokemon} from './data.js';
 import {elements, creatNewDiv, escPopUp} from './elements.js';
 import {loadApiPokemonAsync} from "./pokemonapi.js"
 
-elements.pokedexTitle.addEventListener("click", function click(){
+elements.pokedexTitle.addEventListener("click", function (){
     elements.pokemonType.value = "";
     elements.pokemonEgg.value = "";
     elements.pokemonOrder.value = "";
@@ -44,6 +44,7 @@ elements.pokemonEgg.addEventListener('change', showFilterCards);
 elements.pokemonOrder.addEventListener('change', showFilterCards);
 
 elements.searchButton.addEventListener("click", showFilterCards);
+elements.searchField.addEventListener("keypress", event => {if (event.keyCode ===13) return showFilterCards()})
 
 async function showFilterCards  () {
 let data = await loadApiPokemonAsync();
@@ -82,10 +83,8 @@ let data = await loadApiPokemonAsync();
 
   let pokemons = getFilterPokemon(conditions, data);
   elements.pokemonCard.innerHTML = ""
-  for (let list of pokemons) {
-    let eachCard = creatNewDiv(list);
-    elements.pokemonCard.appendChild(eachCard);
+  creatNewDiv(pokemons);
   }
-}
+
 
 showFilterCards();

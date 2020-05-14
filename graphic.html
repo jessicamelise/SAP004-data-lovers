@@ -11,25 +11,27 @@
 
 <body>
   <header>
-    <p class="title-pokedex">PokédexGO!</p>
+    <div class="max-width">
+      <a href="index.html">
+        <p class="title-pokedex">PokédexGO!</p>
+      </a>
+    </div>
   </header>
   <main>
     <h1>Graphics</h1>
     <section class="graphic-area">
-      <div class="graphic-div">
-        <div>
-          <p>By Type</p>
-          <canvas class="graphic-image" id="graphic-type">Imagem Gráfico</canvas>
-          <p>Percentage:</p>
-        </div>
-        <div>
-          <p>By Egg</p>
-          <canvas class="graphic-image" id="graphic-egg">Imagem Gráfico</canvas>
-          <p>Percentage:</p>
-        </div>
+      <div style="height: 400px">
+        <p>By Type</p>
+        <canvas class="graphic-image" id="graphic-type">Imagem Gráfico</canvas>
+      </div>
+    </section>
+    <section class="graphic-area">
+      <div style="height: 450px">
+        <p>By Egg</p>
+        <canvas class="graphic-image" id="graphic-egg">Imagem Gráfico</canvas>
       </div>
       <a class="link-return" href="index.html">
-        <div class="return"> 
+        <div class="return">
           <span class="material-icons">keyboard_backspace</span>
         </div>
       </a>
@@ -40,4 +42,4 @@
   <script src="graphics.js" type="module"></script>
 </body>
 
-</html> 
+</html>

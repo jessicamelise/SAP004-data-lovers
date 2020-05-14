@@ -23,25 +23,29 @@ export const elements = {
 }
 
 export function creatNewDiv(item) {
-  let newDiv = document.createElement("div");
-  newDiv.classList.add("information-card");
-  newDiv.id = item.id;
-  newDiv.innerHTML = `
-    <aside class="image-pokemon">
-    <img src="${item.img}" alt="${item.name}" class="image-size">
-    </aside>
-    <div class="description">
-    <p class="pokemon-name">${item.name}</p>
-    <p>${item.num}</p>
-    <p>${item.type.join(', ')}</p>
-    </div>
-  `;
-  let click = function () {
-    popUpExhibit();
-    informationPopUp(item.id - 1);
-  }
-  newDiv.addEventListener("click", click);
-  return newDiv;
+  item.map(item => {
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("information-card");
+    newDiv.id = item.id;
+    newDiv.innerHTML = `
+      <aside class="image-pokemon">
+      <img src="${item.img}" alt="${item.name}" class="image-size">
+      </aside>
+      <div class="description">
+      <p class="pokemon-name">${item.name}</p>
+      <p>${item.num}</p>
+      <p>${item.type.join(', ')}</p>
+      </div>
+    `;
+    elements.pokemonCard.appendChild(newDiv)
+    let click = function () {
+      popUpExhibit();
+      informationPopUp(item.id - 1);
+    }
+    newDiv.addEventListener("click", click);
+    return newDiv;
+
+  })
 }
 
 async function informationPopUp(position) {
