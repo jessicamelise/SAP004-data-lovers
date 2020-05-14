@@ -362,6 +362,10 @@ h2 {
     text-align: center;
     padding: 0px;
   }
+  .max-width {
+    flex-direction: column;
+  }
+
   .title-pokedex {
     font-size: 40px;
     margin: 0px;
