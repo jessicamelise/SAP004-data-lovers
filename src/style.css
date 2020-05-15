@@ -100,18 +100,6 @@ a {
   outline: none;
 }
 
-.search-button {
-  border: none;
-  border-radius: 10px;
-  background-color: white;
-  width: 10%;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background-color: whitesmoke;
-}
-
 .filter-button {
   display: flex;
   justify-content: space-around;
