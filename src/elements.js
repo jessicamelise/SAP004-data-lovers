@@ -15,7 +15,6 @@ export const elements = {
   buttonEscPopUp: document.getElementById("popup-esc"),
   pokedexTitle: document.getElementById("pokedex-title"),
   searchField: document.getElementById("search-field"),
-  searchButton: document.getElementById("search-button"),
   pokemonType: document.getElementById("type"),
   pokemonEgg: document.getElementById("eggs"),
   pokemonOrder: document.getElementById("order"),
@@ -26,10 +25,10 @@ export function creatNewDiv(item) {
   item.map(item => {
     let newDiv = document.createElement("div");
     newDiv.classList.add("information-card");
-    newDiv.id = item.id;
     newDiv.innerHTML = `
       <aside class="image-pokemon">
       <img src="${item.img}" alt="${item.name}" class="image-size">
+      <audio id="${item.num}" src="sounds/${item.id}.mp3"></audio>
       </aside>
       <div class="description">
       <p class="pokemon-name">${item.name}</p>
@@ -37,8 +36,9 @@ export function creatNewDiv(item) {
       <p>${item.type.join(', ')}</p>
       </div>
     `;
-    elements.pokemonCard.appendChild(newDiv)
+    elements.pokemonCard.appendChild(newDiv);
     let click = function () {
+      document.getElementById(item.num).play();
       popUpExhibit();
       informationPopUp(item.id - 1);
     }
