@@ -250,6 +250,13 @@ h1 {
 .pokemon-name {
   font-weight: bold;
   font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.pokemon-id {
+  margin-top: 0px;
+  font-size: 14px;
+  color: gray;
 }
 
 .popup-brackground {

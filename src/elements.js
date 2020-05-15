@@ -33,7 +33,7 @@ export function creatNewDiv(item) {
       </aside>
       <div class="description">
       <p class="pokemon-name">${item.name}</p>
-      <p>${item.num}</p>
+      <p class="pokemon-id">${item.num}</p>
       <p>${item.type.join(', ')}</p>
       </div>
     `;
