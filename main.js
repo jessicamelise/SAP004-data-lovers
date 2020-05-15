@@ -36,6 +36,7 @@ function topFunction() {
 elements.buttonScrollUp.addEventListener("click", topFunction);
 
 elements.buttonEscPopUp.addEventListener("click", escPopUp);
+elements.popUpBackGround.addEventListener("click", escPopUp);
 
 elements.pokemonType.addEventListener("change", showFilterCards);
 

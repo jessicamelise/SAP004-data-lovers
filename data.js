@@ -1,5 +1,10 @@
-export const throwNewError = (condition, data) => {
+export const throwNewErrorFilters = (condition, data) => {
   if (typeof condition != 'object' || typeof data != 'object')
+    throw new TypeError();
+}
+
+export const throwNewErrorCalc = (data) => {
+  if (typeof data != 'object')
     throw new TypeError();
 }
 
@@ -41,6 +46,7 @@ export const rules = {
   },
 
   computeStatsType: (data) => {
+    throwNewErrorCalc(data);
     let takeType = data.map((item) => {return item.type});
     let putTogetherAllArrays = takeType.flat();
     let countTypes = putTogetherAllArrays.reduce(function (allTypes, atualType) {
@@ -55,6 +61,7 @@ export const rules = {
   },
 
   computeStatsEgg: (data) => {
+    throwNewErrorCalc(data);
     let takeEgg = data.map((item) => {return item.egg});
     let putTogetherAllArrays = takeEgg.flat();
     let countEggs = putTogetherAllArrays.reduce(function (allEggs, atualEgg) {
@@ -77,7 +84,7 @@ export const sortByType = {
 }
 
 export const getFilterPokemon = (condition, data) => {
-  throwNewError(condition,data);
+  throwNewErrorFilters(condition,data);
   let pokemons = rules.filterType(data, condition.type);
   pokemons = rules.filterEgg(pokemons, condition.egg);
   pokemons = rules.searchPokemons(pokemons, condition.search);
