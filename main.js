@@ -3,12 +3,20 @@ import { elements, creatNewDiv, escPopUp } from './elements.js';
 import { loadApiPokemonAsync } from "./pokemonapi.js"
 
 elements.pokedexTitle.addEventListener("click", function () {
+  clean();
+});
+
+elements.cleanButton.addEventListener("click", function () {
+  clean();
+});
+
+function clean () {
   elements.pokemonType.value = "";
   elements.pokemonEgg.value = "";
   elements.pokemonOrder.value = "";
   elements.searchField.value = "";
   showFilterCards();
-});
+}
 
 function menuExhibit() {
   elements.menuField.classList.toggle("menu-exhibit");
