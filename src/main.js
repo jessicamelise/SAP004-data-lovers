@@ -1,14 +1,22 @@
-import { sortByType, getFilterPokemon} from './data.js';
-import {elements, creatNewDiv, escPopUp} from './elements.js';
-import {loadApiPokemonAsync} from "./pokemonapi.js"
+import { sortByType, getFilterPokemon } from './data.js';
+import { elements, creatNewDiv, escPopUp } from './elements.js';
+import { loadApiPokemonAsync } from "./pokemonapi.js"
 
-elements.pokedexTitle.addEventListener("click", function (){
-    elements.pokemonType.value = "";
-    elements.pokemonEgg.value = "";
-    elements.pokemonOrder.value = "";
-    elements.searchField.value = "";
-  showFilterCards();
+elements.pokedexTitle.addEventListener("click", function () {
+  clean();
 });
+
+elements.cleanButton.addEventListener("click", function () {
+  clean();
+});
+
+function clean () {
+  elements.pokemonType.value = "";
+  elements.pokemonEgg.value = "";
+  elements.pokemonOrder.value = "";
+  elements.searchField.value = "";
+  showFilterCards();
+}
 
 function menuExhibit() {
   elements.menuField.classList.toggle("menu-exhibit");
@@ -26,7 +34,7 @@ function scrollFunction() {
   }
 }
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function topFunction() {
   document.body.scrollTop = 0;
@@ -44,11 +52,13 @@ elements.pokemonEgg.addEventListener("change", showFilterCards);
 
 elements.pokemonOrder.addEventListener("change", showFilterCards);
 
-elements.searchButton.addEventListener("click", showFilterCards);
-elements.searchField.addEventListener("keypress", event => {if (event.keyCode ===13) return showFilterCards()})
+elements.searchField.addEventListener("keydown", event => {
+  if (event.keyCode === 8) return showFilterCards()
+  else showFilterCards()
+})
 
-async function showFilterCards  () {
-let data = await loadApiPokemonAsync();
+async function showFilterCards() {
+  let data = await loadApiPokemonAsync();
 
   let conditions = {
     type: elements.pokemonType.value,
@@ -85,7 +95,6 @@ let data = await loadApiPokemonAsync();
   let pokemons = getFilterPokemon(conditions, data);
   elements.pokemonCard.innerHTML = ""
   creatNewDiv(pokemons);
-  }
-
+}
 
 showFilterCards();
