@@ -100,16 +100,9 @@ a {
   outline: none;
 }
 
-.search-button {
-  border: none;
-  border-radius: 10px;
-  background-color: white;
-  width: 10%;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background-color: whitesmoke;
+.fa-filter {
+  font-size: 20px;
+  color: gray;
 }
 
 .filter-button {
@@ -187,14 +180,14 @@ main {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 250px);
-  margin-top: 240px;
+  margin-top: 215px;
   margin-left: 0px;
   margin-right: 0px;
   padding: 0px 20px;
 }
 
 .main-html {
-  margin-top: 270px;
+  margin-top: 265px;
   min-height: calc(100vh - 300px);
 }
 
@@ -250,6 +243,13 @@ h1 {
 .pokemon-name {
   font-weight: bold;
   font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.pokemon-id {
+  margin-top: 0px;
+  font-size: 14px;
+  color: gray;
 }
 
 .popup-brackground {
@@ -312,12 +312,24 @@ h1 {
   border-radius: 5px;
 }
 
+.list-popup {
+  margin: 0px;
+  padding: 0px;
+}
+
+.list-popup li {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
 h2 {
   text-align: center;
+  font-size: 25px;
 }
 
 .image-popup-card {
   text-align: center;
+  margin: 0px;
 }
 
 .button-popup-esc {
@@ -370,13 +382,12 @@ h2 {
   header {
     flex-direction: column;
     text-align: center;
-    padding: 0px; 
+    padding: 0px;
     height: 220px;
   }
   .max-width {
     flex-direction: column;
   }
-
   .title-pokedex {
     font-size: 40px;
     margin: 0px;
@@ -425,9 +436,11 @@ h2 {
   .select-label {
     width: 40%;
   }
-
+  main {
+    margin-top: 235px;
+  }
   .main-html {
-    margin-top: 370px;
+    margin-top: 360px;
     min-height: calc(100vh - 370px);
   }
   h1 {

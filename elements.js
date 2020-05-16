@@ -15,7 +15,6 @@ export const elements = {
   buttonEscPopUp: document.getElementById("popup-esc"),
   pokedexTitle: document.getElementById("pokedex-title"),
   searchField: document.getElementById("search-field"),
-  searchButton: document.getElementById("search-button"),
   pokemonType: document.getElementById("type"),
   pokemonEgg: document.getElementById("eggs"),
   pokemonOrder: document.getElementById("order"),
@@ -26,19 +25,20 @@ export function creatNewDiv(item) {
   item.map(item => {
     let newDiv = document.createElement("div");
     newDiv.classList.add("information-card");
-    newDiv.id = item.id;
     newDiv.innerHTML = `
       <aside class="image-pokemon">
       <img src="${item.img}" alt="${item.name}" class="image-size">
+      <audio id="${item.num}" src="sounds/${item.id}.mp3"></audio>
       </aside>
       <div class="description">
       <p class="pokemon-name">${item.name}</p>
-      <p>${item.num}</p>
+      <p class="pokemon-id">${item.num}</p>
       <p>${item.type.join(', ')}</p>
       </div>
     `;
-    elements.pokemonCard.appendChild(newDiv)
+    elements.pokemonCard.appendChild(newDiv);
     let click = function () {
+      document.getElementById(item.num).play();
       popUpExhibit();
       informationPopUp(item.id - 1);
     }
@@ -57,15 +57,15 @@ async function informationPopUp(position) {
     <h2>${pokemonJson[position].name}</h2>
     <p class="image-popup-card"><img src="${pokemonJson[position].img}" 
     alt="${pokemonJson[position].name}"></p>
-    <ul>
-      <li>Height: ${pokemonJson[position].height}</li>
-      <li>Weight: ${pokemonJson[position].weight}</li>
-      <li>Type: ${pokemonJson[position].type.join(', ')}</li>
-      <li>Candy: ${pokemonJson[position].candy}</li>
-      <li>Egg: ${pokemonJson[position].egg}</li>
-      <li>Spawn Chance: ${pokemonJson[position].spawn_chance}</li>
-      <li>Spawn Time: ${pokemonJson[position].spawn_time}</li>
-      <li>Weaknesses: ${pokemonJson[position].weaknesses.join(', ')}</li>
+    <ul class="list-popup">
+      <li><b>Height:</b> ${pokemonJson[position].height}</li>
+      <li><b>Weight:</b> ${pokemonJson[position].weight}</li>
+      <li><b>Type:</b> ${pokemonJson[position].type.join(', ')}</li>
+      <li><b>Candy:</b> ${pokemonJson[position].candy}</li>
+      <li><b>Egg:</b> ${pokemonJson[position].egg}</li>
+      <li><b>Spawn Chance:</b> ${pokemonJson[position].spawn_chance}</li>
+      <li><b>Spawn Time:</b> ${pokemonJson[position].spawn_time}</li>
+      <li><b>Weaknesses:</b> ${pokemonJson[position].weaknesses.join(', ')}</li>
     </ul> 
   `;
   elements.descriptionPopUp.appendChild(newDivPopUp);
