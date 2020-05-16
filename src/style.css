@@ -100,6 +100,11 @@ a {
   outline: none;
 }
 
+.fa-filter {
+  font-size: 20px;
+  color: gray;
+}
+
 .filter-button {
   display: flex;
   justify-content: space-around;
