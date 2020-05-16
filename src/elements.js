@@ -28,7 +28,7 @@ export function creatNewDiv(item) {
     newDiv.innerHTML = `
       <aside class="image-pokemon">
       <img src="${item.img}" alt="${item.name}" class="image-size">
-      <audio id="${item.num}" src="sounds/${item.id}.mp3"></audio>
+      <audio id="${item.num}" src="https://pokemoncries.com/cries-old/${item.id}.mp3"></audio>
       </aside>
       <div class="description">
       <p class="pokemon-name">${item.name}</p>
