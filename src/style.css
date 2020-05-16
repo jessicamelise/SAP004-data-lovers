@@ -163,8 +163,11 @@ nav {
 }
 
 .select {
+  text-align-last: center;
+  width: 100px;
   background-color: #79C4F2;
-  border: 1px solid #f2e750;
+  /* border: 1px solid #f2e750; */
+  border: 1px solid white;
   font-family: Helvetica;
   font-size: 20px;
   height: 40px;
@@ -173,7 +176,23 @@ nav {
 }
 
 select:hover {
-  background-color: lightblue;
+  background-color: lightblue
+}
+
+.clean-button {
+  border-radius: 10px;
+  border: none;
+  height: 35px;
+  width: 70px;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.clean-button:hover {
+  background-color: whitesmoke;
 }
 
 main {
@@ -425,16 +444,23 @@ h2 {
   .max-width-nav {
     flex-direction: column;
   }
-  select {
+  .select {
+    width: 50%;
     flex-direction: column;
     text-align: left;
-    width: 50%;
+    flex-direction: row-reverse;
+    margin-top: 2px;
   }
   .select-box {
     width: 100%
   }
   .select-label {
     width: 40%;
+  }
+  .clean-button{
+    position: relative;
+    width: 80%;
+    right: 5%;
   }
   main {
     margin-top: 235px;

@@ -18,7 +18,8 @@ export const elements = {
   pokemonType: document.getElementById("type"),
   pokemonEgg: document.getElementById("eggs"),
   pokemonOrder: document.getElementById("order"),
-  headerShadow: document.getElementById("styling-header")
+  headerShadow: document.getElementById("styling-header"),
+  cleanButton: document.getElementById("clean-button")
 }
 
 export function creatNewDiv(item) {
