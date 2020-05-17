@@ -59,9 +59,10 @@ async function informationPopUp(position) {
     <p class="image-popup-card"><img src="${pokemonJson[position].img}" 
     alt="${pokemonJson[position].name}"></p>
     <ul class="list-popup">
+      <li><b>Type:</b> ${pokemonJson[position].type.map(t => `
+        <span  class='${t} style-type'>${t}</span>`).join(' ')}</li>
       <li><b>Height:</b> ${pokemonJson[position].height}</li>
       <li><b>Weight:</b> ${pokemonJson[position].weight}</li>
-      <li><b>Type:</b> ${pokemonJson[position].type.join(', ')}</li>
       <li><b>Candy:</b> ${pokemonJson[position].candy}</li>
       <li><b>Egg:</b> ${pokemonJson[position].egg}</li>
       <li><b>Spawn Chance:</b> ${pokemonJson[position].spawn_chance}</li>
