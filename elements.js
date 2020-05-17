@@ -73,7 +73,8 @@ async function informationPopUp(position) {
       <li><b>Egg:</b> ${pokemonJson[position].egg}</li>
       <li><b>Spawn Chance:</b> ${pokemonJson[position].spawn_chance}</li>
       <li><b>Spawn Time:</b> ${pokemonJson[position].spawn_time}</li>
-      <li><b>Weaknesses:</b> ${pokemonJson[position].weaknesses.join(', ')}</li>
+      <li><b>Weaknesses:</b> ${pokemonJson[position].weaknesses.map(t => `
+        <span  class='${t} style-type'>${t}</span>`).join(' ')}</li>
     </ul> 
   `;
   
@@ -84,8 +85,6 @@ async function informationPopUp(position) {
 
   spamSound.addEventListener("click", function click () {
     audioPokemons.play();
-    console.log(audioPokemons);
-    console.log(spamSound);
   })
  
   return elements.popUpCard;
