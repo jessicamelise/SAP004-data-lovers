@@ -346,6 +346,10 @@ h2 {
   font-size: 25px;
 }
 
+.audio-popup {
+  cursor: pointer;
+}
+
 .image-popup-card {
   text-align: center;
   margin: 0px;

@@ -57,6 +57,14 @@ elements.searchField.addEventListener("keydown", event => {
   else showFilterCards()
 })
 
+export function getEvolutions (pokemon) {
+  if (pokemon === undefined) {
+    return "-------";
+  } else {
+    return pokemon.map(evolution => evolution.name).join(", ");
+  }
+}
+
 async function showFilterCards() {
   let data = await loadApiPokemonAsync();
 
