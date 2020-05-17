@@ -34,7 +34,7 @@ export function creatNewDiv(item) {
       <div class="description">
       <p class="pokemon-name">${item.name}</p>
       <p class="pokemon-id">${item.num}</p>
-      <p>${item.type.join(', ')}</p>
+      <p>${item.type.map(t => `<span  class='${t} style-type'>${t}</span>`).join(' ')}</p>
       </div>
     `;
     elements.pokemonCard.appendChild(newDiv);

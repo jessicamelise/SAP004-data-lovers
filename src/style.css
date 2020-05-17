@@ -394,6 +394,71 @@ h2 {
   height: 30px;
 }
 
+.style-type {
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.Grass {
+  background-color: rgba(96, 185, 84, 0.8);
+}
+
+.Poison {
+  background-color: rgba(168, 101, 201, 0.8);
+}
+
+.Fire {
+  background-color: rgba(255, 161, 82, 0.8);
+}
+
+.Flying {
+  background-color: rgba(144, 169, 222, 0.8);
+}
+
+.Water {
+  background-color: rgba(86, 157, 217, 0.8);
+}
+
+.Bug {
+  background-color: rgba(148, 194, 46, 0.8);
+}
+
+.Normal {
+  background-color: rgba(145, 154, 161, 0.8);
+}
+
+.Electric {
+  background-color: rgba(246, 216, 80, 0.8);
+}
+
+.Ground {
+  background-color: rgba(217, 119, 69, 0.8);
+}
+
+.Fighting {
+  background-color: rgba(216, 66, 94, 0.8);
+}
+
+.Psychic {
+  background-color: rgba(248, 110, 115, 0.8);
+}
+
+.Rock {
+  background-color: rgba(200, 184, 139, 0.8);
+}
+
+.Ice {
+  background-color: rgba(116, 206, 192, 0.8);
+}
+
+.Ghost {
+  background-color: rgba(118, 114, 210, 0.8);
+}
+
+.Dragon {
+  background-color: rgba(9, 105, 193, 0.8);
+}
+
 @media only screen and (max-width: 800px) {
   html {
     touch-action: auto;
