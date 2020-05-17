@@ -34,7 +34,7 @@ export function creatNewDiv(item) {
       <div class="description">
       <p class="pokemon-name">${item.name}</p>
       <p class="pokemon-id">${item.num}</p>
-      <p>${item.type.join(', ')}</p>
+      <p>${item.type.map(t => `<span  class='${t} style-type'>${t}</span>`).join(' ')}</p>
       </div>
     `;
     elements.pokemonCard.appendChild(newDiv);
@@ -55,13 +55,20 @@ async function informationPopUp(position) {
   let newDivPopUp = document.createElement("div");
   newDivPopUp.classList.add("inside-popup");
   newDivPopUp.innerHTML = `
-    <h2>${pokemonJson[position].name}</h2>
+    <h2>${pokemonJson[position].name}
+      <spam id="${pokemonJson[position].id}-${pokemonJson[position].name}" class="audio-popup">
+      <i class="material-icons">volume_up</i>
+      <audio id="${pokemonJson[position].name}"
+      src="https://pokemoncries.com/cries-old/${pokemonJson[position].id}.mp3"></audio>
+      </spam>
+    </h2>
     <p class="image-popup-card"><img src="${pokemonJson[position].img}" 
     alt="${pokemonJson[position].name}"></p>
     <ul class="list-popup">
+      <li><b>Type:</b> ${pokemonJson[position].type.map(t => `
+        <span  class='${t} style-type'>${t}</span>`).join(' ')}</li>
       <li><b>Height:</b> ${pokemonJson[position].height}</li>
       <li><b>Weight:</b> ${pokemonJson[position].weight}</li>
-      <li><b>Type:</b> ${pokemonJson[position].type.join(', ')}</li>
       <li><b>Candy:</b> ${pokemonJson[position].candy}</li>
       <li><b>Egg:</b> ${pokemonJson[position].egg}</li>
       <li><b>Spawn Chance:</b> ${pokemonJson[position].spawn_chance}</li>
@@ -69,7 +76,18 @@ async function informationPopUp(position) {
       <li><b>Weaknesses:</b> ${pokemonJson[position].weaknesses.join(', ')}</li>
     </ul> 
   `;
+  
   elements.descriptionPopUp.appendChild(newDivPopUp);
+
+  let spamSound = document.getElementById(`${pokemonJson[position].id}-${pokemonJson[position].name}`);
+  let audioPokemons = document.getElementById(`${pokemonJson[position].name}`);
+
+  spamSound.addEventListener("click", function click () {
+    audioPokemons.play();
+    console.log(audioPokemons);
+    console.log(spamSound);
+  })
+ 
   return elements.popUpCard;
 }
 
