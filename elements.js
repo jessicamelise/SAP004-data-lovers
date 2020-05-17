@@ -1,4 +1,5 @@
 import { loadApiPokemonAsync } from "./pokemonapi.js"
+import {getEvolutions} from "./main.js"
 
 export const elements = {
   graphicType: document.getElementById('graphic-type'),
@@ -75,6 +76,7 @@ async function informationPopUp(position) {
       <li><b>Spawn Time:</b> ${pokemonJson[position].spawn_time}</li>
       <li><b>Weaknesses:</b> ${pokemonJson[position].weaknesses.map(t => `
         <span  class='${t} style-type'>${t}</span>`).join(' ')}</li>
+      <li><b>Evolution:</b> ${getEvolutions(pokemonJson[position].next_evolution)}</li>
     </ul> 
   `;
   
