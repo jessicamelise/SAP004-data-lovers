@@ -1,5 +1,5 @@
 import { loadApiPokemonAsync } from "./pokemonapi.js"
-import {getEvolutions} from "./main.js"
+import { getEvolutions } from "./main.js"
 
 export const elements = {
   pokemonCard: document.getElementById("pokemon-card"),
@@ -77,16 +77,16 @@ async function informationPopUp(position) {
       <li><b>Evolution:</b> ${getEvolutions(pokemonJson[position].next_evolution)}</li>
     </ul> 
   `;
-  
+
   elements.descriptionPopUp.appendChild(newDivPopUp);
 
   let spamSound = document.getElementById(`${pokemonJson[position].id}-${pokemonJson[position].name}`);
   let audioPokemons = document.getElementById(`${pokemonJson[position].name}`);
 
-  spamSound.addEventListener("click", function click () {
+  spamSound.addEventListener("click", function click() {
     audioPokemons.play();
   })
- 
+
   return elements.popUpCard;
 }
 
@@ -99,3 +99,15 @@ export function escPopUp() {
   elements.popUpBackGround.classList.remove("popup-brackground-exhibit");
   elements.popUpCard.classList.remove("popup-card-exhibit");
 }
+
+async function pokeArray() {
+  let loadApi = await loadApiPokemonAsync();
+  let pokeArray = loadApi.map(item => item.type).flat();
+  let pokeset = new Set(pokeArray);
+  for ( let item of pokeset) {
+    elements.pokemonType.innerHTML += `
+    <option value="${item}">${item}</option>`
+  }
+}
+
+pokeArray();
