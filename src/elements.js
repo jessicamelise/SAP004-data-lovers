@@ -2,8 +2,6 @@ import { loadApiPokemonAsync } from "./pokemonapi.js"
 import {getEvolutions} from "./main.js"
 
 export const elements = {
-  graphicType: document.getElementById('graphic-type'),
-  graphicEggs: document.getElementById('graphic-egg'),
   pokemonCard: document.getElementById("pokemon-card"),
   mainHtml: document.getElementById("main-html"),
   divButtonScrollUp: document.getElementById("div-scroll-up"),

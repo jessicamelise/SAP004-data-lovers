@@ -1,6 +1,8 @@
 import { rules } from "./data.js"
 import { loadApiPokemonAsync } from "./pokemonapi.js"
-import { elements } from "./elements.js"
+
+const graphicType = document.getElementById('graphic-type');
+const graphicEggs = document.getElementById('graphic-egg');
 
 let colorsType = [
   'rgb(96, 185, 84)',
@@ -37,12 +39,12 @@ async function takeValuesForGraphics() {
   let dataType = rules.computeStatsType(loadApi);
   let takeObjectKeysType = Object.keys(dataType);
   let takeObjectValuesType = Object.values(dataType);
-  createGraphics(elements.graphicType.getContext('2d'), takeObjectKeysType, colorsType, takeObjectValuesType)
+  createGraphics(graphicType.getContext('2d'), takeObjectKeysType, colorsType, takeObjectValuesType)
 
   let dataEgg = rules.computeStatsEgg(loadApi);
   let takeObjectKeysEgg = Object.keys(dataEgg);
   let takeObjectValuesEgg = Object.values(dataEgg);
-  createGraphics(elements.graphicEggs.getContext('2d'), takeObjectKeysEgg, colorsEgg, takeObjectValuesEgg)
+  createGraphics(graphicEggs.getContext('2d'), takeObjectKeysEgg, colorsEgg, takeObjectValuesEgg)
 }
 
 takeValuesForGraphics()
