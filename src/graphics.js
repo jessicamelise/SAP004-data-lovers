@@ -29,13 +29,8 @@ let colorsEgg = [
   'rgb(139, 119, 173)',
 ]
 
-async function getValuesApiAsync() {
-  let result = await loadApiPokemonAsync();
-  return result;
-}
-
 async function takeValuesForGraphics() {
-  let loadApi = await getValuesApiAsync();
+  let loadApi = await loadApiPokemonAsync();
   let dataType = rules.computeStatsType(loadApi);
   let takeObjectKeysType = Object.keys(dataType);
   let takeObjectValuesType = Object.values(dataType);
@@ -50,7 +45,7 @@ async function takeValuesForGraphics() {
 takeValuesForGraphics()
 
 async function createGraphics(elements, labels, colors, dataset) {
-  let loadApi = await getValuesApiAsync();
+  let loadApi = await loadApiPokemonAsync();
   let chart = new Chart(elements, {
     type: 'doughnut',
 
