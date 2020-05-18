@@ -100,14 +100,15 @@ export function escPopUp() {
   elements.popUpCard.classList.remove("popup-card-exhibit");
 }
 
-async function pokeArray() {
+async function pokeArray(type, element) {
   let loadApi = await loadApiPokemonAsync();
-  let pokeArray = loadApi.map(item => item.type).flat();
+  let pokeArray = loadApi.map(item => item[type]).flat();
   let pokeset = new Set(pokeArray);
   for ( let item of pokeset) {
-    elements.pokemonType.innerHTML += `
+    element.innerHTML += `
     <option value="${item}">${item}</option>`
   }
 }
 
-pokeArray();
+pokeArray("type",elements.pokemonType);
+pokeArray("egg",elements.pokemonEgg);
