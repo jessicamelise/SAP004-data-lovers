@@ -118,7 +118,7 @@ Na questão do desenvolvimento, decidimos objetivamente separar ele em grupos de
 
 
 
-#### Segunda pesquisa - realizada com 62 pessoas
+#### Segunda pesquisa
 
 - Idade dos jogadores 
 ![Idade dos jogadores](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/age.png "Idade dos jogadores")
@@ -135,19 +135,6 @@ Na questão do desenvolvimento, decidimos objetivamente separar ele em grupos de
 - Opinião sobre os Pop-ups com informações extras
 ![Gráfico com a opinião sobre o quão satisfatórios foram os Pop-ups e sua usabilidade](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/usabilidadePopUp.png "Gráfico com a opinião sobre o quão satisfatórios foram os Pop-ups e sua usabilidade")
 
-- Algumas opiniões deixadas pelos avaliadores que levamos em consideração para melhorias: 
-
-![Sobre a falta de um botão de retorno](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/botaoretorno.png "Sobre a falta de um botão de retorno")
-
-![Sobre a necessidade de uma área de gráficos e FAQ](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/faqgraphics.png "Sobre a necessidade de uma área de gráficos e FAQ")
-
-![Opinião em relação as cores que não estavam agradáveis aos olhos](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/opiniaoCores.png "Opinião em relação as cores que não estavam agradáveis aos olhos")
-
-![Necessidade de uma página de erro para quando a pessoa não digitar corretamente](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/opiniaoNaoTerPaginaDeErroNaPesquisa.png "Necessidade de uma página de erro para quando a pessoa não digitar corretamente")
-
-![Campo de pesquisa indicar o que  pode ser pesquisado](https://github.com/CarolPinheiro/SAP004-data-lovers/blob/master/Arquivos/placeholderExplicarOquePesquisar.png "Campo de pesquisa indicar o que  pode ser pesquisado")
-
-  
 
 ### 4.3 Planejamento do site
 
@@ -194,11 +181,12 @@ Na questão do desenvolvimento, decidimos objetivamente separar ele em grupos de
 - [x] Aplicar ela usando a biblioteca ***Chart.js***.
 
 #### Fase 6
-- [ ] Aplicar as melhorias no CSS, considerando as opiniões recebidas via pesquisa.
-- [ ] Criar uma tela de Login.
-- [ ] Criar um teste para a API.
-
-
+- [x] Aplicar as melhorias no CSS, considerando as opiniões recebidas via pesquisa.
+- [x] Criar um teste para a API.
+- [x] Colocar som nos cards de Pokémon.
+- [x] Tornar a pesquisa mais interativa.
+- [x] Criar um botão de limpar.
+- [x] Refatorar algumas coisas do código.
   
 
 ## 5. Instalação do projeto
@@ -221,9 +209,7 @@ Assim que a instalação tiver sido concluída, basta digitar em seu terminal:
     npm install 
 E aguardar até que o processo tenha sido completo.
 
-Para que a  biblioteca dos gráficos seja executada, é necessário digitar após o último processo:
-
- 
+Por default a biblioteca já acompanha o projeto, mas caso queira baixar em sua máquina, basta executar o seguinte comando:
 
     npm install chart.js --save
 
@@ -232,6 +218,10 @@ Para abrir um servidor a fim de executar o projeto, é só digitar:
     npm start
   E clicar no link que vai ser disponibilizado.
 
+Caso deseje testar a cobertura das funções criadas no **Data.js**, basta digitar no console:
+
+    npm test
+E acompanhar os resultados a serem exibidos.
   
 
 ## Autores
